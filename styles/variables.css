@@ -1,0 +1,77 @@
+:root {
+  /* Primary Colors */
+  --color-trust-blue: #1E90FF;       /* Headers, primary CTAs, links */
+  --color-growth-green: #00C853;     /* Secondary buttons, highlights, badges */
+  --color-energy-orange: #FFA500;    /* Accent lines, callouts, buttons */
+
+  /* Secondary / Accent Colors */
+  --color-sunshine-yellow: #FFD700;  /* Icons, emphasis text, small highlights */
+  --color-deep-navy: #0D1B2A;        /* Main text, footer background, important headers */
+  --color-cool-gray: #F5F5F5;        /* Section backgrounds, cards, spacing */
+
+  /* Neutral / Background Colors */
+  --color-white: #FFFFFF;            /* Main background */
+  --color-light-gray: #E0E0E0;       /* Borders, subtle shadows, separators */
+
+  /* 2025 Modern Additions */
+  --color-soft-blue: #F0F8FF;        /* Soft background tints */
+  --color-warm-gray: #FAFAFA;        /* Card backgrounds */
+  --color-accent-purple: #8B5CF6;    /* Modern accent color */
+  --color-success-green: #10B981;    /* Success states */
+  --color-warning-amber: #F59E0B;    /* Warning states */
+  
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  /* Spacing System */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 6rem;     /* 96px */
+  
+  /* Border Radius */
+  --radius-sm: 0.375rem;   /* 6px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-2xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;   /* Full rounded */
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+  
+  /* Container Widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  
+  /* Z-Index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}

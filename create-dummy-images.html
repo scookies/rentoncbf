@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dummy Image Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .image-generator { margin: 20px 0; padding: 20px; border: 1px solid #ddd; }
+        canvas { border: 1px solid #ccc; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Dummy Image Generator for Renton Children's Business Fair</h1>
+    <div id="images"></div>
+
+    <script>
+        // Image specifications
+        const images = [
+            // Hero Images
+            { name: 'hero-homepage.jpg', width: 1920, height: 1080, text: 'Youth Entrepreneurs\nBusiness Fair', color: '#1E90FF' },
+            { name: 'hero-about.jpg', width: 1920, height: 1080, text: 'Our Story\nEmpowering Youth', color: '#00C853' },
+            { name: 'hero-fairs.jpg', width: 1920, height: 1080, text: 'Past Fairs\nSuccess Stories', color: '#FFA500' },
+            { name: 'hero-vendors.jpg', width: 1920, height: 1080, text: 'Young Entrepreneurs\nMeet Our Vendors', color: '#8B5CF6' },
+            
+            // Fair Carousel Images - Winter 2024
+            { name: 'winter-2024-1.jpg', width: 800, height: 600, text: 'Solar Charger\nInnovation', color: '#FFD700' },
+            { name: 'winter-2024-2.jpg', width: 800, height: 600, text: 'Sustainable Fashion\nShowcase', color: '#00C853' },
+            { name: 'winter-2024-3.jpg', width: 800, height: 600, text: 'Community\nEngagement', color: '#1E90FF' },
+            { name: 'winter-2024-4.jpg', width: 800, height: 600, text: 'Award Ceremony\nCelebration', color: '#FFA500' },
+            
+            // Fair Carousel Images - Fall 2024
+            { name: 'fall-2024-1.jpg', width: 800, height: 600, text: 'Harvest Market\nBusiness Fair', color: '#FF8C00' },
+            { name: 'fall-2024-2.jpg', width: 800, height: 600, text: 'Pumpkin Carving\nCompetition', color: '#FFD700' },
+            { name: 'fall-2024-3.jpg', width: 800, height: 600, text: 'Mentorship\nSessions', color: '#00C853' },
+            
+            // Fair Carousel Images - Summer 2024
+            { name: 'summer-2024-1.jpg', width: 800, height: 600, text: 'Business Workshop\nSessions', color: '#1E90FF' },
+            { name: 'summer-2024-2.jpg', width: 800, height: 600, text: 'Digital Marketing\nTraining', color: '#8B5CF6' },
+            { name: 'summer-2024-3.jpg', width: 800, height: 600, text: 'Final Day\nPresentations', color: '#FFA500' },
+            { name: 'summer-2024-4.jpg', width: 800, height: 600, text: 'Graduation\nCeremony', color: '#00C853' },
+            
+            // Fair Carousel Images - Spring 2024
+            { name: 'spring-2024-1.jpg', width: 800, height: 600, text: 'Tech Showcase\nPresentations', color: '#1E90FF' },
+            { name: 'spring-2024-2.jpg', width: 800, height: 600, text: 'Social Impact\nBusinesses', color: '#00C853' },
+            { name: 'spring-2024-3.jpg', width: 800, height: 600, text: 'International\nCuisine Corner', color: '#FFA500' },
+            
+            // Vendor Profile Images
+            { name: 'vendor-techfix.jpg', width: 800, height: 600, text: 'TechFix Solutions\nAlex, Age 14', color: '#1E90FF' },
+            { name: 'vendor-jewelry.jpg', width: 800, height: 600, text: 'Eco Jewelry\nMaya, Age 12', color: '#00C853' },
+            { name: 'vendor-cookies.jpg', width: 800, height: 600, text: 'Cultural Cookies\nZara, Age 13', color: '#FFA500' },
+            { name: 'vendor-petcare.jpg', width: 800, height: 600, text: 'Pet Care Plus\nEmma, Age 15', color: '#8B5CF6' },
+            { name: 'vendor-books.jpg', width: 800, height: 600, text: 'Books for All\nJordan, Age 11', color: '#FFD700' },
+            { name: 'vendor-apps.jpg', width: 800, height: 600, text: 'YouthCode Apps\nSam, Age 16', color: '#1E90FF' },
+            
+            // Success Story Video
+            { name: 'success-story-video.jpg', width: 800, height: 450, text: 'Success Story\nDocumentary', color: '#8B5CF6' },
+            
+            // Gallery Images for Homepage
+            { name: 'gallery-1.jpg', width: 600, height: 450, text: 'Young Entrepreneur\nat Work', color: '#1E90FF' },
+            { name: 'gallery-2.jpg', width: 600, height: 450, text: 'First Customer\nInteraction', color: '#00C853' },
+            { name: 'gallery-3.jpg', width: 600, height: 450, text: 'Achievement\nCelebration', color: '#FFA500' },
+            { name: 'gallery-4.jpg', width: 600, height: 450, text: 'Team\nCollaboration', color: '#8B5CF6' }
+        ];
+
+        function createDummyImage(spec) {
+            const canvas = document.createElement('canvas');
+            canvas.width = spec.width;
+            canvas.height = spec.height;
+            const ctx = canvas.getContext('2d');
+
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, spec.width, spec.height);
+            gradient.addColorStop(0, spec.color + '80');
+            gradient.addColorStop(1, spec.color + '40');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, spec.width, spec.height);
+
+            // Add overlay pattern
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+            for (let i = 0; i < spec.width; i += 50) {
+                for (let j = 0; j < spec.height; j += 50) {
+                    ctx.fillRect(i, j, 25, 25);
+                }
+            }
+
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            // Dynamic font size based on canvas size
+            const fontSize = Math.min(spec.width / 15, spec.height / 8);
+            ctx.font = `bold ${fontSize}px Arial`;
+            
+            const lines = spec.text.split('\\n');
+            const lineHeight = fontSize * 1.2;
+            const totalHeight = lineHeight * lines.length;
+            const startY = (spec.height - totalHeight) / 2 + lineHeight / 2;
+            
+            lines.forEach((line, index) => {
+                ctx.fillText(line, spec.width / 2, startY + index * lineHeight);
+            });
+
+            // Add shadow for better readability
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 4;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+
+            return canvas;
+        }
+
+        function downloadImage(canvas, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/jpeg', 0.8);
+            link.click();
+        }
+
+        // Generate all images
+        images.forEach(spec => {
+            const div = document.createElement('div');
+            div.className = 'image-generator';
+            div.innerHTML = `<h3>${spec.name} (${spec.width}x${spec.height})</h3>`;
+            
+            const canvas = createDummyImage(spec);
+            div.appendChild(canvas);
+            
+            const button = document.createElement('button');
+            button.textContent = `Download ${spec.name}`;
+            button.onclick = () => downloadImage(canvas, spec.name);
+            div.appendChild(button);
+            
+            document.getElementById('images').appendChild(div);
+        });
+
+        // Auto-download all images
+        setTimeout(() => {
+            if (confirm('Download all dummy images automatically?')) {
+                images.forEach(spec => {
+                    const canvas = createDummyImage(spec);
+                    setTimeout(() => downloadImage(canvas, spec.name), 100);
+                });
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

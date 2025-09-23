@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth Vendors - Renton Children's Business Fair</title>
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <div class="logo">
+                        <i class="fas fa-store-alt"></i>
+                    </div>
+                    <a href="index.html" class="brand-title">Renton Children's Business Fair</a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="about.html#story" class="nav-link">Our Story</a></li>
+                        <li><a href="about.html#mission" class="nav-link">Mission</a></li>
+                        <li><a href="about.html#vision" class="nav-link">Vision</a></li>
+                        <li><a href="vendors.html" class="nav-link active">Youth Vendors</a></li>
+                        <li><a href="fairs.html" class="nav-link">Fairs</a></li>
+                    </ul>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero vendors-hero hero-with-image" style="background-image: url('images/hero-vendors.jpg');">
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Meet Our Young Entrepreneurs</h1>
+                    <p class="hero-subtitle">Discover the innovative businesses, creative solutions, and inspiring stories of our talented youth vendors.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vendor Categories -->
+        <section class="vendor-categories section-card">
+            <div class="container">
+                <h2 class="section-title">Business Categories</h2>
+                <div class="categories-grid">
+                    <div class="category-filter active" data-category="all">
+                        <div class="category-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <span>All Businesses</span>
+                    </div>
+                    <div class="category-filter" data-category="tech">
+                        <div class="category-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <span>Technology</span>
+                    </div>
+                    <div class="category-filter" data-category="arts">
+                        <div class="category-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <span>Arts & Crafts</span>
+                    </div>
+                    <div class="category-filter" data-category="food">
+                        <div class="category-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <span>Food & Beverage</span>
+                    </div>
+                    <div class="category-filter" data-category="service">
+                        <div class="category-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <span>Services</span>
+                    </div>
+                    <div class="category-filter" data-category="social">
+                        <div class="category-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <span>Social Impact</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vendors Grid -->
+        <section class="vendors-section">
+            <div class="container">
+                <h2 class="section-title">Featured Youth Vendors</h2>
+                <div class="vendors-grid">
+                    
+                    <!-- Vendor 1: Tech -->
+                    <div class="vendor-card" data-category="tech">
+                        <div class="vendor-video">
+                            <div class="video-placeholder" style="background-image: url('images/vendor-techfix.jpg');">
+                                <div class="play-button" data-video="tech-solutions">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-overlay">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Watch Alex's Tech Solutions Story</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vendor-info">
+                            <div class="vendor-header">
+                                <h3>TechFix Solutions</h3>
+                                <div class="vendor-age">Age 14</div>
+                            </div>
+                            <p class="vendor-description">Alex started TechFix Solutions to help community members with device repairs and tech support. From fixing cracked screens to setting up smart home devices, Alex has served over 100 customers and plans to expand into cybersecurity education.</p>
+                            <div class="vendor-achievements">
+                                <div class="achievement">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Innovation Award Winner 2024</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-users"></i>
+                                    <span>100+ Customers Served</span>
+                                </div>
+                            </div>
+                            <div class="vendor-tags">
+                                <span class="tag">Device Repair</span>
+                                <span class="tag">Tech Support</span>
+                                <span class="tag">Education</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vendor 2: Arts -->
+                    <div class="vendor-card" data-category="arts">
+                        <div class="vendor-video">
+                            <div class="video-placeholder" style="background-image: url('images/vendor-jewelry.jpg');">
+                                <div class="play-button" data-video="eco-jewelry">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-overlay">
+                                    <i class="fas fa-gem"></i>
+                                    <span>Watch Maya's Eco Jewelry Journey</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vendor-info">
+                            <div class="vendor-header">
+                                <h3>Maya's Eco Jewelry</h3>
+                                <div class="vendor-age">Age 12</div>
+                            </div>
+                            <p class="vendor-description">Maya creates stunning jewelry from recycled materials and ocean plastic. Her business combines artistic creativity with environmental consciousness, donating 20% of profits to ocean cleanup initiatives.</p>
+                            <div class="vendor-achievements">
+                                <div class="achievement">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>Sustainability Champion</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>$2,000+ in Sales</span>
+                                </div>
+                            </div>
+                            <div class="vendor-tags">
+                                <span class="tag">Handmade</span>
+                                <span class="tag">Eco-Friendly</span>
+                                <span class="tag">Ocean Cleanup</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vendor 3: Food -->
+                    <div class="vendor-card" data-category="food">
+                        <div class="vendor-video">
+                            <div class="video-placeholder" style="background-image: url('images/vendor-cookies.jpg');">
+                                <div class="play-button" data-video="cultural-cookies">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-overlay">
+                                    <i class="fas fa-cookie-bite"></i>
+                                    <span>Watch Zara's Cultural Cookies Story</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vendor-info">
+                            <div class="vendor-header">
+                                <h3>Cultural Cookies by Zara</h3>
+                                <div class="vendor-age">Age 13</div>
+                            </div>
+                            <p class="vendor-description">Zara celebrates cultural diversity through her unique cookie business, featuring traditional recipes from around the world. Each month, she highlights a different culture's dessert traditions, fostering community understanding through delicious treats.</p>
+                            <div class="vendor-achievements">
+                                <div class="achievement">
+                                    <i class="fas fa-globe-americas"></i>
+                                    <span>Cultural Ambassador</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-star"></i>
+                                    <span>Featured in Local News</span>
+                                </div>
+                            </div>
+                            <div class="vendor-tags">
+                                <span class="tag">Cultural Fusion</span>
+                                <span class="tag">Homemade</span>
+                                <span class="tag">Community</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vendor 4: Service -->
+                    <div class="vendor-card" data-category="service">
+                        <div class="vendor-video">
+                            <div class="video-placeholder" style="background-image: url('images/vendor-petcare.jpg');">
+                                <div class="play-button" data-video="pet-care">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-overlay">
+                                    <i class="fas fa-paw"></i>
+                                    <span>Watch Emma's Pet Care Adventures</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vendor-info">
+                            <div class="vendor-header">
+                                <h3>Emma's Pet Care Plus</h3>
+                                <div class="vendor-age">Age 15</div>
+                            </div>
+                            <p class="vendor-description">Emma's comprehensive pet care service includes dog walking, pet sitting, basic grooming, and pet photography. She's built a loyal customer base of 30+ families and has trained two other teens to help expand the business.</p>
+                            <div class="vendor-achievements">
+                                <div class="achievement">
+                                    <i class="fas fa-users"></i>
+                                    <span>Team of 3 Employees</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>200+ Bookings</span>
+                                </div>
+                            </div>
+                            <div class="vendor-tags">
+                                <span class="tag">Pet Care</span>
+                                <span class="tag">Photography</span>
+                                <span class="tag">Team Building</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vendor 5: Social Impact -->
+                    <div class="vendor-card" data-category="social">
+                        <div class="vendor-video">
+                            <div class="video-placeholder" style="background-image: url('images/vendor-books.jpg');">
+                                <div class="play-button" data-video="books-for-all">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-overlay">
+                                    <i class="fas fa-book"></i>
+                                    <span>Watch Jordan's Books for All Mission</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vendor-info">
+                            <div class="vendor-header">
+                                <h3>Books for All</h3>
+                                <div class="vendor-age">Age 11</div>
+                            </div>
+                            <p class="vendor-description">Jordan created "Books for All" to ensure every child has access to books. Through book drives, repairs, and affordable sales, Jordan has distributed over 1,000 books to underserved communities while promoting literacy and learning.</p>
+                            <div class="vendor-achievements">
+                                <div class="achievement">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>1,000+ Books Distributed</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-award"></i>
+                                    <span>Community Service Award</span>
+                                </div>
+                            </div>
+                            <div class="vendor-tags">
+                                <span class="tag">Literacy</span>
+                                <span class="tag">Community Service</span>
+                                <span class="tag">Book Rescue</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vendor 6: Tech -->
+                    <div class="vendor-card" data-category="tech">
+                        <div class="vendor-video">
+                            <div class="video-placeholder" style="background-image: url('images/vendor-apps.jpg');">
+                                <div class="play-button" data-video="app-development">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-overlay">
+                                    <i class="fas fa-code"></i>
+                                    <span>Watch Sam's App Development Story</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vendor-info">
+                            <div class="vendor-header">
+                                <h3>YouthCode Apps</h3>
+                                <div class="vendor-age">Age 16</div>
+                            </div>
+                            <p class="vendor-description">Sam develops mobile apps focused on youth empowerment and education. Their latest app connects teenagers with volunteer opportunities, while their tutoring app has helped over 200 students improve their grades.</p>
+                            <div class="vendor-achievements">
+                                <div class="achievement">
+                                    <i class="fas fa-download"></i>
+                                    <span>5,000+ App Downloads</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Teen Mentorship Leader</span>
+                                </div>
+                            </div>
+                            <div class="vendor-tags">
+                                <span class="tag">App Development</span>
+                                <span class="tag">Youth Focus</span>
+                                <span class="tag">Education</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories -->
+        <section class="success-stories section-card">
+            <div class="container">
+                <h2 class="section-title">Success Story Spotlight</h2>
+                <div class="spotlight-vendor">
+                    <div class="spotlight-video">
+                        <div class="video-placeholder large" style="background-image: url('images/success-story-video.jpg');">
+                            <div class="play-button large" data-video="success-story">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-overlay">
+                                <i class="fas fa-star"></i>
+                                <span>Watch Our Annual Success Story</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spotlight-content">
+                        <h3>From Fair to Fortune: A Year of Growth</h3>
+                        <p>Follow the incredible journey of our 2024 vendors as they evolved from first-time entrepreneurs to confident business owners. This documentary-style video captures their challenges, breakthroughs, and the supportive community that made their success possible.</p>
+                        <div class="spotlight-stats">
+                            <div class="spotlight-stat">
+                                <span class="stat-number">15</span>
+                                <span class="stat-label">Vendors Featured</span>
+                            </div>
+                            <div class="spotlight-stat">
+                                <span class="stat-number">$25K</span>
+                                <span class="stat-label">Combined Revenue</span>
+                            </div>
+                            <div class="spotlight-stat">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Lives Impacted</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Modal -->
+        <div class="video-modal" id="video-modal">
+            <div class="modal-content">
+                <button class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="modal-video">
+                    <div class="video-player">
+                        <div class="video-placeholder-modal">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Video content would play here</p>
+                            <small>In a real implementation, this would connect to your video hosting service</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Inspire the Next Generation</h2>
+                    <p>Support our young entrepreneurs by attending our fairs, mentoring participants, or becoming a program sponsor.</p>
+                    <div class="cta-buttons">
+                        <a href="#mentor" class="button-primary">Become a Mentor</a>
+                        <a href="fairs.html" class="button-secondary">View Upcoming Fairs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Renton Children's Business Fair</h3>
+                    <p>Empowering the next generation of entrepreneurs through creativity, innovation, and real business experience.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="fairs.html">Past Fairs</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Renton Children's Business Fair. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
