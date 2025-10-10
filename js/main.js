@@ -1,382 +1,526 @@
-// Main JavaScript for Renton Children's Business Fair Website
+/**
+ * Main Application Entry Point
+ * Refactored for better maintainability and clean code principles
+ * 
+ * @author Renton Children's Business Fair Development Team
+ * @version 2.0.0
+ */
 
-// DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all functionality
-    initNavigation();
-    initCarousel();
-    initVendorFilters();
-    initVideoModal();
-    initScrollAnimations();
-    initScrollEffects();
-});
+class RentonCBFApp {
+    constructor() {
+        this.modules = new Map();
+        this.isInitialized = false;
+        this.config = window.SiteConfig;
+    }
 
-// Navigation Functions
-function initNavigation() {
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
-
-        // Close menu when clicking on links
-        const navLinks = navMenu.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
+    /**
+     * Initialize the application
+     * Entry point for all functionality
+     */
+    async init() {
+        try {
+            // Wait for DOM to be fully loaded
+            if (document.readyState === 'loading') {
+                await this.waitForDOM();
             }
+
+            console.log('🚀 Initializing Renton CBF Application...');
+            
+            // Initialize core modules in order
+            await this.initializeModules();
+            
+            // Initialize page-specific functionality
+            this.initializePageSpecific();
+            
+            // Set up global event handlers
+            this.initializeGlobalEvents();
+            
+            this.isInitialized = true;
+            console.log('✅ Application initialized successfully');
+            
+        } catch (error) {
+            console.error('❌ Application initialization failed:', error);
+            this.handleInitializationError(error);
+        }
+    }
+
+    /**
+     * Wait for DOM to be ready
+     * @returns {Promise} Promise that resolves when DOM is ready
+     */
+    waitForDOM() {
+        return new Promise(resolve => {
+            document.addEventListener('DOMContentLoaded', resolve);
         });
     }
 
-    // Header scroll effect
-    const header = document.querySelector('.header');
-    if (header) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
-    }
-}
+    /**
+     * Initialize all core modules
+     */
+    async initializeModules() {
+        const moduleInitializers = [
+            { name: 'navigation', class: NavigationModule, required: true },
+            { name: 'carousel', class: CarouselModule, required: false },
+            { name: 'animations', initializer: () => this.initializeAnimations(), required: false },
+            { name: 'forms', initializer: () => this.initializeForms(), required: false },
+            { name: 'modal', initializer: () => this.initializeModals(), required: false }
+        ];
 
-// Carousel Functions
-function initCarousel() {
-    const carousels = document.querySelectorAll('[data-carousel]');
-    
-    carousels.forEach(carousel => {
-        const carouselId = carousel.dataset.carousel;
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        const prevBtn = document.querySelector(`.carousel-btn.prev[data-carousel="${carouselId}"]`);
-        const nextBtn = document.querySelector(`.carousel-btn.next[data-carousel="${carouselId}"]`);
-        const dots = document.querySelectorAll(`.carousel-dots[data-carousel="${carouselId}"] .dot`);
-        
-        let currentSlide = 0;
-        
-        function showSlide(index) {
-            // Remove active class from all slides and dots
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            // Add active class to current slide and dot
-            if (slides[index]) {
-                slides[index].classList.add('active');
-            }
-            if (dots[index]) {
-                dots[index].classList.add('active');
-            }
-            
-            // Move carousel track
-            const translateX = -index * 100;
-            carousel.style.transform = `translateX(${translateX}%)`;
-            
-            currentSlide = index;
-        }
-        
-        // Previous button
-        if (prevBtn) {
-            prevBtn.addEventListener('click', function() {
-                const prevIndex = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
-                showSlide(prevIndex);
-            });
-        }
-        
-        // Next button
-        if (nextBtn) {
-            nextBtn.addEventListener('click', function() {
-                const nextIndex = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
-                showSlide(nextIndex);
-            });
-        }
-        
-        // Dots navigation
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', function() {
-                showSlide(index);
-            });
-        });
-        
-        // Auto-play carousel (optional)
-        setInterval(() => {
-            const nextIndex = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
-            showSlide(nextIndex);
-        }, 5000); // Change slide every 5 seconds
-        
-        // Initialize first slide
-        showSlide(0);
-    });
-}
-
-// Vendor Filter Functions
-function initVendorFilters() {
-    const categoryFilters = document.querySelectorAll('.category-filter');
-    const vendorCards = document.querySelectorAll('.vendor-card');
-    
-    if (categoryFilters.length === 0) return;
-    
-    categoryFilters.forEach(filter => {
-        filter.addEventListener('click', function() {
-            const category = this.dataset.category;
-            
-            // Update active filter
-            categoryFilters.forEach(f => f.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Filter vendor cards
-            vendorCards.forEach(card => {
-                const cardCategory = card.dataset.category;
+        for (const moduleConfig of moduleInitializers) {
+            try {
+                let module;
                 
-                if (category === 'all' || cardCategory === category) {
-                    card.classList.remove('hidden');
-                    // Add animation delay for staggered effect
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 100);
-                } else {
-                    card.classList.add('hidden');
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
+                if (moduleConfig.class) {
+                    module = new moduleConfig.class();
+                    module.init();
+                } else if (moduleConfig.initializer) {
+                    module = moduleConfig.initializer();
+                }
+                
+                this.modules.set(moduleConfig.name, module);
+                console.log(`✅ ${moduleConfig.name} module initialized`);
+                
+            } catch (error) {
+                console.warn(`⚠️  ${moduleConfig.name} module failed to initialize:`, error);
+                
+                if (moduleConfig.required) {
+                    throw new Error(`Required module ${moduleConfig.name} failed to initialize`);
+                }
+            }
+        }
+    }
+
+    /**
+     * Initialize page-specific functionality
+     */
+    initializePageSpecific() {
+        const currentPage = this.getCurrentPage();
+        
+        switch (currentPage) {
+            case 'index':
+                this.initializeHomePage();
+                break;
+            case 'vendors':
+                this.initializeVendorsPage();
+                break;
+            case 'fairs':
+                this.initializeFairsPage();
+                break;
+            case 'about':
+                this.initializeAboutPage();
+                break;
+        }
+    }
+
+    /**
+     * Get current page identifier
+     * @returns {string} Current page identifier
+     */
+    getCurrentPage() {
+        const path = window.location.pathname;
+        const fileName = path.split('/').pop().split('.')[0];
+        return fileName || 'index';
+    }
+
+    /**
+     * Initialize home page specific features
+     */
+    initializeHomePage() {
+        console.log('🏠 Initializing home page features');
+        // Home page specific initialization
+        this.initializeHeroEffects();
+        this.initializeStatCounters();
+    }
+
+    /**
+     * Initialize vendors page specific features
+     */
+    initializeVendorsPage() {
+        console.log('🏪 Initializing vendors page features');
+        this.initializeVendorFilters();
+    }
+
+    /**
+     * Initialize fairs page specific features
+     */
+    initializeFairsPage() {
+        console.log('🎪 Initializing fairs page features');
+        // Fairs page specific initialization
+    }
+
+    /**
+     * Initialize about page specific features
+     */
+    initializeAboutPage() {
+        console.log('ℹ️ Initializing about page features');
+        // About page specific initialization
+    }
+
+    /**
+     * Initialize hero section effects
+     */
+    initializeHeroEffects() {
+        if (!this.config.animations.parallax.enabled) return;
+
+        const heroSections = document.querySelectorAll('.hero');
+        const scrollHandler = UtilityHelpers.throttle(() => {
+            const scrolled = window.pageYOffset;
+            const rate = this.config.animations.parallax.rate;
+            
+            heroSections.forEach(hero => {
+                const heroBackground = hero.querySelector('.hero-background');
+                if (heroBackground) {
+                    heroBackground.style.transform = `translateY(${scrolled * rate}px)`;
                 }
             });
-        });
-    });
-}
+        }, 16); // ~60fps
 
-// Video Modal Functions
-function initVideoModal() {
-    const playButtons = document.querySelectorAll('.play-button');
-    const videoModal = document.getElementById('video-modal');
-    const modalClose = document.getElementById('modal-close');
-    
-    if (!videoModal) return;
-    
-    playButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const videoId = this.dataset.video;
-            openVideoModal(videoId);
-        });
-    });
-    
-    if (modalClose) {
-        modalClose.addEventListener('click', closeVideoModal);
+        window.addEventListener('scroll', scrollHandler);
     }
-    
-    // Close modal when clicking outside
-    videoModal.addEventListener('click', function(e) {
-        if (e.target === videoModal) {
-            closeVideoModal();
-        }
-    });
-    
-    // Close modal with escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-            closeVideoModal();
-        }
-    });
-    
-    function openVideoModal(videoId) {
-        videoModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        // In a real implementation, you would load the actual video here
-        console.log(`Opening video: ${videoId}`);
-        
-        // Example of how you might load a video:
-        // const videoPlayer = videoModal.querySelector('.video-player');
-        // videoPlayer.innerHTML = `<iframe src="path-to-video/${videoId}" frameborder="0" allowfullscreen></iframe>`;
-    }
-    
-    function closeVideoModal() {
-        videoModal.classList.remove('active');
-        document.body.style.overflow = '';
-        
-        // Clear video content to stop playback
-        const videoPlayer = videoModal.querySelector('.video-player');
-        if (videoPlayer) {
-            // Reset to placeholder
-            videoPlayer.innerHTML = `
-                <div class="video-placeholder-modal">
-                    <i class="fas fa-play-circle"></i>
-                    <p>Video content would play here</p>
-                    <small>In a real implementation, this would connect to your video hosting service</small>
-                </div>
-            `;
-        }
-    }
-}
 
-// Scroll Animation Functions
-function initScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.testimonial, .gallery-item, .fair-card, .timeline-item, .pillar, .value-card, .vendor-card, .stat-item');
-    
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
+    /**
+     * Initialize stat counters animation
+     */
+    initializeStatCounters() {
+        const statItems = document.querySelectorAll('.stat-item[data-count]');
         
-        animatedElements.forEach(element => {
-            observer.observe(element);
-        });
-    } else {
-        // Fallback for browsers without IntersectionObserver
-        animatedElements.forEach(element => {
-            element.classList.add('animate');
-        });
-    }
-}
-
-// Scroll Effects
-function initScrollEffects() {
-    // Parallax effect for hero sections
-    const heroSections = document.querySelectorAll('.hero');
-    
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        
-        heroSections.forEach(hero => {
-            const rate = scrolled * -0.5;
-            const heroBackground = hero.querySelector('.hero-background');
-            if (heroBackground) {
-                heroBackground.style.transform = `translateY(${rate}px)`;
-            }
-        });
-    });
-    
-    // Smooth scrolling for anchor links
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    
-    anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.animateStatCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
                 });
-            }
-        });
-    });
-}
+            });
 
-// Utility Functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Performance optimization: debounced scroll handler
-const debouncedScrollHandler = debounce(() => {
-    // Additional scroll-based functionality can be added here
-}, 16); // ~60fps
-
-window.addEventListener('scroll', debouncedScrollHandler);
-
-// Form handling (if forms are added later)
-function initFormHandling() {
-    const forms = document.querySelectorAll('form');
-    
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Basic form validation and submission logic
-            const formData = new FormData(this);
-            
-            // Example: Send form data to server
-            console.log('Form submitted:', Object.fromEntries(formData));
-            
-            // Show success message
-            showNotification('Thank you! Your form has been submitted.', 'success');
-        });
-    });
-}
-
-// Notification system
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.textContent = message;
-    
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: var(--color-white);
-        color: var(--color-deep-navy);
-        padding: 1rem 1.5rem;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-xl);
-        z-index: var(--z-tooltip);
-        transform: translateX(400px);
-        transition: transform var(--transition-normal);
-    `;
-    
-    if (type === 'success') {
-        notification.style.borderLeft = `4px solid var(--color-growth-green)`;
-    } else if (type === 'error') {
-        notification.style.borderLeft = `4px solid var(--color-warning-amber)`;
+            statItems.forEach(item => observer.observe(item));
+        }
     }
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Remove after delay
-    setTimeout(() => {
-        notification.style.transform = 'translateX(400px)';
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.parentNode.removeChild(notification);
+
+    /**
+     * Animate stat counter
+     * @param {HTMLElement} element - Stat element to animate
+     */
+    animateStatCounter(element) {
+        const targetValue = parseInt(element.dataset.count);
+        const duration = 2000; // 2 seconds
+        const startTime = Date.now();
+        const startValue = 0;
+
+        const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function (ease-out)
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const currentValue = Math.floor(startValue + (targetValue - startValue) * easeOut);
+            
+            element.textContent = currentValue.toLocaleString();
+            
+            if (progress < 1) {
+                requestAnimationFrame(animate);
             }
-        }, 300);
-    }, 4000);
+        };
+
+        animate();
+    }
+
+    /**
+     * Initialize scroll animations
+     */
+    initializeAnimations() {
+        const animatedElements = document.querySelectorAll(
+            '.testimonial, .gallery-item, .fair-card, .timeline-item, .pillar, .value-card, .vendor-card, .stat-item'
+        );
+        
+        if ('IntersectionObserver' in window) {
+            const observerOptions = this.config.animations.scrollAnimations;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            return { observer, elements: animatedElements };
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            animatedElements.forEach(element => {
+                element.classList.add('animate');
+            });
+            return null;
+        }
+    }
+
+    /**
+     * Initialize vendor filters
+     */
+    initializeVendorFilters() {
+        const categoryFilters = document.querySelectorAll('.category-filter');
+        const vendorCards = document.querySelectorAll('.vendor-card');
+        
+        if (categoryFilters.length === 0) return;
+        
+        categoryFilters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                this.handleVendorFilter(filter, categoryFilters, vendorCards);
+            });
+        });
+        
+        return { filters: categoryFilters, cards: vendorCards };
+    }
+
+    /**
+     * Handle vendor category filtering
+     * @param {HTMLElement} activeFilter - Clicked filter
+     * @param {NodeList} allFilters - All filter elements
+     * @param {NodeList} vendorCards - All vendor cards
+     */
+    handleVendorFilter(activeFilter, allFilters, vendorCards) {
+        const category = activeFilter.dataset.category;
+        
+        // Update active filter
+        allFilters.forEach(filter => filter.classList.remove('active'));
+        activeFilter.classList.add('active');
+        
+        // Filter vendor cards with animation
+        vendorCards.forEach((card, index) => {
+            const cardCategory = card.dataset.category;
+            const shouldShow = category === 'all' || cardCategory === category;
+            
+            if (shouldShow) {
+                card.classList.remove('hidden');
+                // Staggered animation
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 50);
+            } else {
+                card.classList.add('hidden');
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+            }
+        });
+    }
+
+    /**
+     * Initialize form handling
+     */
+    initializeForms() {
+        const forms = document.querySelectorAll('form');
+        
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                this.handleFormSubmission(e, form);
+            });
+        });
+        
+        return { count: forms.length };
+    }
+
+    /**
+     * Handle form submission
+     * @param {Event} event - Form submission event
+     * @param {HTMLFormElement} form - Form element
+     */
+    handleFormSubmission(event, form) {
+        event.preventDefault();
+        
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        // Basic validation
+        if (!this.validateForm(form, data)) {
+            return;
+        }
+        
+        console.log('Form submitted:', data);
+        UtilityHelpers.showNotification('Thank you! Your form has been submitted.', 'success');
+        
+        // Reset form
+        form.reset();
+    }
+
+    /**
+     * Validate form data
+     * @param {HTMLFormElement} form - Form element
+     * @param {Object} data - Form data
+     * @returns {boolean} Whether form is valid
+     */
+    validateForm(form, data) {
+        const requiredFields = form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                field.classList.add('error');
+                isValid = false;
+            } else {
+                field.classList.remove('error');
+            }
+        });
+        
+        // Email validation
+        const emailFields = form.querySelectorAll('input[type="email"]');
+        emailFields.forEach(field => {
+            if (field.value && !UtilityHelpers.isValidEmail(field.value)) {
+                field.classList.add('error');
+                isValid = false;
+            }
+        });
+        
+        if (!isValid) {
+            UtilityHelpers.showNotification('Please fill in all required fields correctly.', 'error');
+        }
+        
+        return isValid;
+    }
+
+    /**
+     * Initialize modal functionality
+     */
+    initializeModals() {
+        const modals = document.querySelectorAll('.modal');
+        const modalTriggers = document.querySelectorAll('[data-modal-target]');
+        
+        // Initialize modal triggers
+        modalTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = trigger.dataset.modalTarget;
+                const modal = document.getElementById(targetId);
+                if (modal) {
+                    this.openModal(modal);
+                }
+            });
+        });
+        
+        // Initialize modal close buttons
+        modals.forEach(modal => {
+            const closeButton = modal.querySelector('.modal-close, [data-modal-close]');
+            if (closeButton) {
+                closeButton.addEventListener('click', () => this.closeModal(modal));
+            }
+            
+            // Close on backdrop click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    this.closeModal(modal);
+                }
+            });
+        });
+        
+        // Close modals with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    this.closeModal(activeModal);
+                }
+            }
+        });
+        
+        return { modals: modals.length, triggers: modalTriggers.length };
+    }
+
+    /**
+     * Open modal
+     * @param {HTMLElement} modal - Modal element to open
+     */
+    openModal(modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        modal.dispatchEvent(new CustomEvent('modalOpened'));
+    }
+
+    /**
+     * Close modal
+     * @param {HTMLElement} modal - Modal element to close
+     */
+    closeModal(modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        modal.dispatchEvent(new CustomEvent('modalClosed'));
+    }
+
+    /**
+     * Initialize global event handlers
+     */
+    initializeGlobalEvents() {
+        // Global error handling
+        window.addEventListener('error', (event) => {
+            console.error('Global JavaScript error:', event.error);
+        });
+
+        // Performance monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    console.log('📊 Page load performance:', {
+                        domContentLoaded: perfData.domContentLoadedEventEnd - perfData.fetchStart,
+                        fullyLoaded: perfData.loadEventEnd - perfData.fetchStart
+                    });
+                }, 0);
+            });
+        }
+    }
+
+    /**
+     * Handle initialization errors
+     * @param {Error} error - The initialization error
+     */
+    handleInitializationError(error) {
+        // Log error for debugging
+        console.error('Application failed to initialize:', error);
+        
+        // Show user-friendly message
+        UtilityHelpers.showNotification(
+            'Some features may not work properly. Please refresh the page.', 
+            'warning', 
+            8000
+        );
+    }
+
+    /**
+     * Get module instance
+     * @param {string} name - Module name
+     * @returns {Object|null} Module instance or null
+     */
+    getModule(name) {
+        return this.modules.get(name) || null;
+    }
+
+    /**
+     * Destroy the application and clean up
+     */
+    destroy() {
+        this.modules.forEach(module => {
+            if (module && typeof module.destroy === 'function') {
+                module.destroy();
+            }
+        });
+        this.modules.clear();
+        this.isInitialized = false;
+    }
 }
 
-// Error handling
-window.addEventListener('error', function(e) {
-    console.error('JavaScript error:', e.error);
-});
+// Initialize the application
+const app = new RentonCBFApp();
 
-// Initialize form handling when DOM is ready
-document.addEventListener('DOMContentLoaded', initFormHandling);
+// Start the application when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => app.init());
+} else {
+    app.init();
+}
+
+// Make app available globally for debugging
+window.RentonCBFApp = app;
