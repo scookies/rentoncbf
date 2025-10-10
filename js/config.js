@@ -15,9 +15,6 @@ window.SiteConfig = {
     // Navigation
     navigation: {
         primary: [
-            { label: "Our Story", href: "#story", page: "about.html" },
-            { label: "Mission", href: "#mission", page: "about.html" },
-            { label: "Vision", href: "#vision", page: "about.html" },
             { label: "Youth Vendors", href: "vendors.html" },
             { label: "Fairs", href: "fairs.html" }
         ]
