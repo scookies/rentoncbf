@@ -100,9 +100,6 @@ class RentonCBFApp {
             case 'index':
                 this.initializeHomePage();
                 break;
-            case 'vendors':
-                this.initializeVendorsPage();
-                break;
             case 'fairs':
                 this.initializeFairsPage();
                 break;
@@ -132,13 +129,6 @@ class RentonCBFApp {
         this.initializeStatCounters();
     }
 
-    /**
-     * Initialize vendors page specific features
-     */
-    initializeVendorsPage() {
-        console.log('🏪 Initializing vendors page features');
-        this.initializeVendorFilters();
-    }
 
     /**
      * Initialize fairs page specific features
@@ -259,56 +249,7 @@ class RentonCBFApp {
         }
     }
 
-    /**
-     * Initialize vendor filters
-     */
-    initializeVendorFilters() {
-        const categoryFilters = document.querySelectorAll('.category-filter');
-        const vendorCards = document.querySelectorAll('.vendor-card');
-        
-        if (categoryFilters.length === 0) return;
-        
-        categoryFilters.forEach(filter => {
-            filter.addEventListener('click', () => {
-                this.handleVendorFilter(filter, categoryFilters, vendorCards);
-            });
-        });
-        
-        return { filters: categoryFilters, cards: vendorCards };
-    }
 
-    /**
-     * Handle vendor category filtering
-     * @param {HTMLElement} activeFilter - Clicked filter
-     * @param {NodeList} allFilters - All filter elements
-     * @param {NodeList} vendorCards - All vendor cards
-     */
-    handleVendorFilter(activeFilter, allFilters, vendorCards) {
-        const category = activeFilter.dataset.category;
-        
-        // Update active filter
-        allFilters.forEach(filter => filter.classList.remove('active'));
-        activeFilter.classList.add('active');
-        
-        // Filter vendor cards with animation
-        vendorCards.forEach((card, index) => {
-            const cardCategory = card.dataset.category;
-            const shouldShow = category === 'all' || cardCategory === category;
-            
-            if (shouldShow) {
-                card.classList.remove('hidden');
-                // Staggered animation
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 50);
-            } else {
-                card.classList.add('hidden');
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-            }
-        });
-    }
 
     /**
      * Initialize form handling

@@ -14,10 +14,7 @@ window.SiteConfig = {
 
     // Navigation
     navigation: {
-        primary: [
-            { label: "Youth Vendors", href: "vendors.html" },
-            { label: "Fairs", href: "fairs.html" }
-        ]
+        primary: []
     },
 
     // Animation Settings
