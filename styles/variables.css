@@ -1,24 +1,24 @@
 :root {
-  /* Primary Colors */
-  --color-trust-blue: #1E90FF;       /* Headers, primary CTAs, links */
-  --color-growth-green: #00C853;     /* Secondary buttons, highlights, badges */
-  --color-energy-orange: #FFA500;    /* Accent lines, callouts, buttons */
+  /* Primary Colors - Renton Municipal Inspired */
+  --color-trust-blue: #2B5A9E;       /* Headers, primary CTAs, links - Municipal Navy Blue */
+  --color-growth-green: #4A7C59;     /* Secondary buttons, highlights, badges - Forest Green */
+  --color-energy-orange: #D67E37;    /* Accent lines, callouts, buttons - Warm Copper */
 
   /* Secondary / Accent Colors */
-  --color-sunshine-yellow: #FFD700;  /* Icons, emphasis text, small highlights */
-  --color-deep-navy: #0D1B2A;        /* Main text, footer background, important headers */
-  --color-cool-gray: #F5F5F5;        /* Section backgrounds, cards, spacing */
+  --color-sunshine-yellow: #F4C430;  /* Icons, emphasis text, small highlights - Municipal Gold */
+  --color-deep-navy: #1B3A57;        /* Main text, footer background, important headers - Deep Municipal Blue */
+  --color-cool-gray: #F5F7FA;        /* Section backgrounds, cards, spacing - Clean Gray */
 
   /* Neutral / Background Colors */
   --color-white: #FFFFFF;            /* Main background */
-  --color-light-gray: #E0E0E0;       /* Borders, subtle shadows, separators */
+  --color-light-gray: #D6DBE1;       /* Borders, subtle shadows, separators - Soft Blue-Gray */
 
-  /* 2025 Modern Additions */
-  --color-soft-blue: #F0F8FF;        /* Soft background tints */
-  --color-warm-gray: #FAFAFA;        /* Card backgrounds */
-  --color-accent-purple: #8B5CF6;    /* Modern accent color */
-  --color-success-green: #10B981;    /* Success states */
-  --color-warning-amber: #F59E0B;    /* Warning states */
+  /* Municipal Professional Colors */
+  --color-soft-blue: #E8F2FF;        /* Soft background tints - Light Municipal Blue */
+  --color-warm-gray: #F8F9FA;        /* Card backgrounds - Clean White-Gray */
+  --color-accent-purple: #6B73A0;    /* Modern accent color - Muted Purple */
+  --color-success-green: #4A7C59;    /* Success states - Matches growth green */
+  --color-warning-amber: #D67E37;    /* Warning states - Matches energy orange */
   
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
