@@ -128,9 +128,11 @@ def create_fair_html(fair, images):
                                 <span class="fair-time"><i class="far fa-clock"></i> {fair['Time']}</span>
                             </div>
                         </div>
-                        <div class="fair-description">
-                            {description_html}
-                        </div>{carousel_html}
+                        <div class="fair-content">
+                            <div class="fair-description">
+                                {description_html}
+                            </div>{carousel_html}
+                        </div>
                     </div>'''
     
     return fair_html
