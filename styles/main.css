@@ -1830,7 +1830,7 @@ section {
   }
 }
 
-/* Sponsors Page Styles */
+/* Sponsors Page Styles - Updated */
 .sponsors-hero {
   background-position: center center;
   background-size: cover;
@@ -1922,6 +1922,9 @@ section {
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-2xl);
   margin-top: var(--space-3xl);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sponsorship-tier {
@@ -1941,10 +1944,6 @@ section {
   transform: scale(1.02);
 }
 
-.sponsorship-tier.premium {
-  border: 2px solid var(--color-accent-purple);
-  background: linear-gradient(135deg, rgba(123, 97, 255, 0.05), rgba(30, 144, 255, 0.05));
-}
 
 .sponsorship-tier:hover {
   transform: translateY(-8px);
@@ -2131,6 +2130,22 @@ section {
 }
 
 /* Mobile Responsiveness for Sponsors Page */
+@media (max-width: 1024px) {
+  .sponsorship-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    max-width: 600px;
+  }
+  
+  .sponsorship-tier.featured {
+    transform: none;
+  }
+  
+  .sponsorship-tier.featured:hover {
+    transform: translateY(-8px);
+  }
+}
+
 @media (max-width: 768px) {
   .benefits-grid {
     grid-template-columns: 1fr;
@@ -2152,18 +2167,6 @@ section {
     gap: var(--space-xl);
   }
   
-  .sponsorship-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
-  }
-  
-  .sponsorship-tier.featured {
-    transform: none;
-  }
-  
-  .sponsorship-tier.featured:hover {
-    transform: translateY(-8px);
-  }
   
   .impact-grid {
     grid-template-columns: 1fr;
