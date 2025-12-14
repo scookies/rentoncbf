@@ -60,6 +60,7 @@ class RentonCBFApp {
     async initializeModules() {
         const moduleInitializers = [
             { name: 'navigation', class: NavigationModule, required: true },
+            { name: 'heroStats', class: HeroStatsModule, required: false },
             { name: 'carousel', class: CarouselModule, required: false },
             { name: 'animations', initializer: () => this.initializeAnimations(), required: false },
             { name: 'forms', initializer: () => this.initializeForms(), required: false },
@@ -72,7 +73,7 @@ class RentonCBFApp {
                 
                 if (moduleConfig.class) {
                     module = new moduleConfig.class();
-                    module.init();
+                    await module.init();
                 } else if (moduleConfig.initializer) {
                     module = moduleConfig.initializer();
                 }
