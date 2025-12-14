@@ -266,7 +266,7 @@ p {
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: var(--font-weight-extrabold);
   margin-bottom: var(--space-lg);
   color: var(--color-white);
@@ -292,18 +292,20 @@ p {
 
 .hero-stats {
   display: grid;
-  gap: var(--space-xl);
-  padding: var(--space-2xl);
+  gap: var(--space-lg);
+  padding: var(--space-lg);
   background: rgba(255, 255, 255, 0.8);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-xl);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 400px;
+  width: auto;
 }
 
 .stat {
   text-align: center;
-  padding: var(--space-lg);
+  padding: var(--space-sm);
 }
 
 .stat-number {
@@ -672,7 +674,7 @@ section {
   }
 
   .stat {
-    padding: var(--space-md);
+    padding: var(--space-sm);
   }
 
   .fair-card {
@@ -708,10 +710,30 @@ section {
   .hero-stats {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
+    min-width: auto;
+    width: 100%;
   }
 
   .brand-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    display: none; /* Hide on very small screens to save space */
+  }
+
+  .nav-brand {
+    justify-content: space-between;
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
   }
 }
 
@@ -740,11 +762,7 @@ section {
 }
 
 /* About Page Styles */
-.about-hero .hero-content {
-  grid-template-columns: 1fr;
-  text-align: center;
-  justify-items: center;
-}
+/* Note: All hero sections use the base .hero-content styles for consistency */
 
 .our-story-detailed {
   padding: var(--space-4xl) 0;
@@ -1028,14 +1046,9 @@ section {
 }
 
 /* Fairs Page Styles */
+/* Note: All hero sections use the base .hero-content styles for consistency */
 .fairs-hero {
-  min-height: 60vh; /* Match index.html hero height with stats */
-}
-
-.fairs-hero .hero-content {
-  grid-template-columns: 1fr;
-  text-align: center;
-  justify-items: center;
+  min-height: 60vh; /* Match other hero sections */
 }
 
 .fair-stats {
@@ -1376,11 +1389,7 @@ section {
 }
 
 /* Vendors Page Styles */
-.vendors-hero .hero-content {
-  grid-template-columns: 1fr;
-  text-align: center;
-  justify-items: center;
-}
+/* Note: All hero sections use the base .hero-content styles for consistency */
 
 .vendor-categories {
   margin: var(--space-2xl) 0;
