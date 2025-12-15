@@ -66,6 +66,60 @@ images/fairs/
 
 📖 **Detailed Guide:** See `FAIRS_UPDATE_GUIDE.md` for complete instructions
 
+## 🖼️ Fair Images Auto-Update
+
+### Adding New Fair Images
+
+The website now includes an automated script to update fair carousel images:
+
+**Quick Process:**
+1. **Add images** to the appropriate fair folder:
+   ```
+   images/
+   ├── midWinterFair/     # Mid Winter Fair images  
+   ├── summerFair/        # Summer Fair images
+   └── preHolidayMarket/  # Pre-Holiday Market images
+   ```
+
+2. **Run the auto-update script:**
+   ```bash
+   node update-fair-images.js
+   ```
+
+### Script Features
+- ✅ **Auto-scans** all fair image folders
+- 🔄 **Updates 3 data files** automatically:
+  - `data/fair-images.json` (primary data source)
+  - `js/data/fair-images-data.js` (fallback for file:// protocol)
+  - `js/modules/fair-carousel.js` (hardcoded fallback)
+- 📸 **Supports all formats:** JPG, JPEG, PNG, WebP, GIF
+- 🚫 **Ignores hidden files** (like .DS_Store)
+- 📋 **Shows summary** of found images
+
+**Example Output:**
+```
+🔄 Scanning fair image directories...
+
+✅ Found 4 images in Summer Fair:
+   - images/summerFair/CBF_3966.jpeg
+   - images/summerFair/CBF_3967.jpeg
+   - images/summerFair/CBF_3970.jpeg
+   - images/summerFair/CBF_3989.jpeg
+
+📝 Updating data files...
+✅ Updated data/fair-images.json
+✅ Updated js/data/fair-images-data.js  
+✅ Updated js/modules/fair-carousel.js
+
+🎉 Fair image update complete!
+```
+
+### Manual Alternative
+If Node.js isn't available, manually edit these files with new image paths:
+- `data/fair-images.json`
+- `js/data/fair-images-data.js`  
+- `js/modules/fair-carousel.js`
+
 ## 🎨 Customization
 
 ### Colors
