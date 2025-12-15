@@ -2342,6 +2342,19 @@ section {
   margin-right: auto;
 }
 
+.contact-actions {
+  text-align: center;
+  margin-top: var(--space-2xl);
+}
+
+.contact-actions .button-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 1.1rem;
+  padding: var(--space-md) var(--space-xl);
+}
+
 .contact-info {
   display: flex;
   justify-content: center;
