@@ -28,7 +28,15 @@
                     <nav>
                         <ul class="nav-list">
                             <li><a href="index.html" class="nav-link">Home</a></li>
-                            <li><a href="fairs.html" class="nav-link">Past Fairs</a></li>
+                            <li><a href="index.html#our-story" class="nav-link">Our Story</a></li>
+                            <li><a href="index.html#success-stories" class="nav-link">Success Stories</a></li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link has-dropdown">Fairs</a>
+                                <div class="nav-dropdown">
+                                    <a href="#" class="nav-dropdown-item" data-modal="upcoming-fair-modal">Upcoming Fair</a>
+                                    <a href="fairs.html" class="nav-dropdown-item">Past Fairs</a>
+                                </div>
+                            </li>
                             <li><a href="sponsors.html" class="nav-link">Sponsor Us</a></li>
                         </ul>
                     </nav>
@@ -54,34 +62,6 @@
                 </div>
                 <div class="hero-stats">
                     <!-- Stats loaded dynamically from data/hero-stats.json -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Upcoming Fair Section -->
-        <section class="upcoming-fair section-card">
-            <div class="container">
-                <h2 class="section-title">Upcoming Fair</h2>
-                <div class="fair-card">
-                    <div class="fair-info">
-                        <div class="fair-date">
-                            <i class="far fa-calendar"></i>
-                            <span>March 7, 2026</span>
-                        </div>
-                        <div class="fair-time">
-                            <i class="far fa-clock"></i>
-                            <span>12:00 PM - 3:00 PM</span>
-                        </div>
-                        <div class="fair-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Renton</span>
-                        </div>
-                    </div>
-                    <div class="fair-description">
-                        <h3>Pre-FIFA Market</h3>
-                        <p>Join us for our first fair of 2026! Young entrepreneurs will showcase their creative businesses, from handmade crafts to balloon arts. Experience the energy of tomorrow's leaders.</p>
-                        <a href="https://www.childrensbusinessfair.org/wa-renton" class="button-primary" target="_blank" rel="noopener">Register Now</a>
-                    </div>
                 </div>
             </div>
         </section>
@@ -133,7 +113,7 @@
         </section>
 
         <!-- Testimonials Section -->
-        <section class="testimonials section-card">
+        <section id="success-stories" class="testimonials section-card">
             <div class="container">
                 <h2 class="section-title">Success Stories</h2>
                 <div class="testimonials-grid">
@@ -191,6 +171,34 @@
                 </div>
             </div>
         </section>
+
+        <!-- Upcoming Fair Section -->
+        <section class="upcoming-fair section-card">
+            <div class="container">
+                <h2 class="section-title">Upcoming Fair</h2>
+                <div class="fair-card">
+                    <div class="fair-info">
+                        <div class="fair-date">
+                            <i class="far fa-calendar"></i>
+                            <span>March 7, 2026</span>
+                        </div>
+                        <div class="fair-time">
+                            <i class="far fa-clock"></i>
+                            <span>12:00 PM - 3:00 PM</span>
+                        </div>
+                        <div class="fair-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Renton</span>
+                        </div>
+                    </div>
+                    <div class="fair-description">
+                        <h3>Pre-FIFA Market</h3>
+                        <p>Join us for our first fair of 2026! Young entrepreneurs will showcase their creative businesses, from handmade crafts to balloon arts. Experience the energy of tomorrow's leaders.</p>
+                        <a href="https://www.childrensbusinessfair.org/wa-renton" class="button-primary" target="_blank" rel="noopener">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -225,7 +233,9 @@
     <script src="js/config.js"></script>
     <script src="js/utils/helpers.js"></script>
     <script src="js/modules/navigation.js"></script>
+    <script src="js/data/hero-stats-data.js"></script>
     <script src="js/modules/hero-stats.js"></script>
+    <script src="js/modules/upcoming-fair.js"></script>
     <script src="js/modules/carousel.js"></script>
     <script src="js/components/header.js"></script>
     <script src="js/main.js"></script>

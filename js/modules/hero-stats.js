@@ -5,6 +5,7 @@ class HeroStatsModule {
 
     async loadStats() {
         try {
+            // Try to fetch from JSON file first (works with web server)
             const response = await fetch('data/hero-stats.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -13,14 +14,16 @@ class HeroStatsModule {
             this.stats = data.heroStats;
             return this.stats;
         } catch (error) {
-            console.error('Failed to load hero stats:', error);
-            // Fallback stats if file fails to load
-            this.stats = [
-                { number: "120+", label: "Young Entrepreneurs" },
-                { number: "2", label: "Fairs Hosted in 2025" },
-                { number: "$5,000+", label: "Youth Revenue" },
-                { number: "100%", label: "Success Stories" }
-            ];
+            console.warn('Failed to load hero stats from JSON:', error.message);
+            
+            // Fallback to embedded JavaScript data (works with file:// protocol)
+            if (window.HeroStatsData && window.HeroStatsData.heroStats) {
+                this.stats = window.HeroStatsData.heroStats;
+                return this.stats;
+            }
+            
+            // If both methods fail, leave stats as null
+            this.stats = null;
             return this.stats;
         }
     }

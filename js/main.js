@@ -61,6 +61,7 @@ class RentonCBFApp {
         const moduleInitializers = [
             { name: 'navigation', class: NavigationModule, required: true },
             { name: 'heroStats', class: HeroStatsModule, required: false },
+            { name: 'upcomingFair', class: UpcomingFairModule, required: false },
             { name: 'carousel', class: CarouselModule, required: false },
             { name: 'animations', initializer: () => this.initializeAnimations(), required: false },
             { name: 'forms', initializer: () => this.initializeForms(), required: false },

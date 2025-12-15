@@ -28,7 +28,15 @@
                     <nav>
                         <ul class="nav-list">
                             <li><a href="index.html" class="nav-link">Home</a></li>
-                            <li><a href="fairs.html" class="nav-link">Past Fairs</a></li>
+                            <li><a href="index.html#our-story" class="nav-link">Our Story</a></li>
+                            <li><a href="index.html#success-stories" class="nav-link">Success Stories</a></li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link has-dropdown">Fairs</a>
+                                <div class="nav-dropdown">
+                                    <a href="#" class="nav-dropdown-item" data-modal="upcoming-fair-modal">Upcoming Fair</a>
+                                    <a href="fairs.html" class="nav-dropdown-item">Past Fairs</a>
+                                </div>
+                            </li>
                             <li><a href="sponsors.html" class="nav-link">Sponsor Us</a></li>
                         </ul>
                     </nav>
@@ -152,7 +160,7 @@
                     <div class="sponsorship-tier featured">
                         <div class="tier-header">
                             <h3 class="tier-name">Annual Supporter</h3>
-                            <div class="tier-price">$2,000 <span class="price-period">Per Year</span></div>
+                            <div class="tier-price">$1,500 <span class="price-period">Per Year</span></div>
                             <p class="tier-description">For businesses wanting consistent visibility across multiple events</p>
                         </div>
                         <div class="tier-benefits">
@@ -171,7 +179,7 @@
                     <div class="sponsorship-tier">
                         <div class="tier-header">
                             <h3 class="tier-name">Youth Enabler</h3>
-                            <div class="tier-price">$5,000 <span class="price-period">Per Year</span></div>
+                            <div class="tier-price">$3,500 <span class="price-period">Per Year</span></div>
                             <p class="tier-description">Ideal for organizations focused on education, youth development, or community outreach</p>
                         </div>
                         <div class="tier-benefits">
@@ -274,7 +282,9 @@
     <script src="js/config.js"></script>
     <script src="js/utils/helpers.js"></script>
     <script src="js/modules/navigation.js"></script>
+    <script src="js/data/hero-stats-data.js"></script>
     <script src="js/modules/hero-stats.js"></script>
+    <script src="js/modules/upcoming-fair.js"></script>
     <script src="js/modules/carousel.js"></script>
     <script src="js/components/header.js"></script>
     <script src="js/main.js"></script>

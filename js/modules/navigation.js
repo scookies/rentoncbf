@@ -15,6 +15,7 @@ class NavigationModule {
         this.initMobileMenu();
         this.initSmoothScrolling();
         this.initActiveStates();
+        this.handlePageLoadAnchors();
     }
 
     /**
@@ -88,11 +89,22 @@ class NavigationModule {
         const targetSection = document.querySelector(targetId);
         
         if (targetSection) {
-            const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
-            const targetPosition = targetSection.offsetTop - headerHeight - 20;
+            const header = document.querySelector('.header');
+            let headerHeight = 140; // Default fallback
+            
+            if (header) {
+                headerHeight = header.offsetHeight;
+            }
+            
+            console.log('Header height:', headerHeight, 'Target section:', targetId); // Debug log
+            
+            const additionalOffset = 40; // Extra space to ensure title is clearly visible
+            const targetPosition = targetSection.offsetTop - headerHeight - additionalOffset;
+            
+            console.log('Target position:', targetPosition, 'Section offset:', targetSection.offsetTop); // Debug log
             
             window.scrollTo({
-                top: targetPosition,
+                top: Math.max(0, targetPosition), // Ensure we don't scroll above the page
                 behavior: 'smooth'
             });
         }
@@ -128,6 +140,28 @@ class NavigationModule {
         
         const fileName = href.split('/').pop();
         return currentPath.endsWith(fileName);
+    }
+
+    /**
+     * Handle page load with anchors (for cross-page navigation)
+     */
+    handlePageLoadAnchors() {
+        // Check if page was loaded with an anchor
+        if (window.location.hash) {
+            // If page is already loaded, scroll immediately
+            if (document.readyState === 'complete') {
+                setTimeout(() => {
+                    this.smoothScrollTo(window.location.hash);
+                }, 500); // Longer delay to ensure layout is complete
+            } else {
+                // Wait for page to fully load, then scroll with proper offset
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        this.smoothScrollTo(window.location.hash);
+                    }, 500); // Longer delay to ensure all elements are rendered and styled
+                });
+            }
+        }
     }
 }
 
