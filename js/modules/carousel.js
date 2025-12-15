@@ -147,10 +147,6 @@ class Carousel {
             this.dots[index].classList.add('active');
         }
 
-        // Move carousel track
-        const translateX = -index * 100;
-        this.element.style.transform = `translateX(${translateX}%)`;
-
         this.currentSlide = index;
         
         // Trigger custom event

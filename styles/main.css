@@ -1203,16 +1203,26 @@ section {
 }
 
 .carousel-track {
-  display: flex;
-  transition: transform var(--transition-normal);
+  position: relative;
+  width: 100%;
+  height: 300px;
 }
 
 .carousel-slide {
-  min-width: 100%;
-  height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.carousel-slide.active {
+  opacity: 1;
 }
 
 .carousel-slide .image-placeholder {
@@ -1458,7 +1468,7 @@ section {
     right: var(--space-md);
   }
 
-  .carousel-slide {
+  .carousel-track {
     height: 250px;
   }
 
