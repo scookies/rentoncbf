@@ -486,12 +486,6 @@ section {
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  transition: all var(--transition-normal);
-}
-
-.gallery-item:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow-xl);
 }
 
 /* Gallery Images */

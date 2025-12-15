@@ -30,7 +30,7 @@ class RentonCBFApp {
             await this.initializeModules();
             
             // Initialize page-specific functionality
-            this.initializePageSpecific();
+            await this.initializePageSpecific();
             
             // Set up global event handlers
             this.initializeGlobalEvents();
@@ -95,7 +95,7 @@ class RentonCBFApp {
     /**
      * Initialize page-specific functionality
      */
-    initializePageSpecific() {
+    async initializePageSpecific() {
         const currentPage = this.getCurrentPage();
         
         switch (currentPage) {
@@ -103,7 +103,7 @@ class RentonCBFApp {
                 this.initializeHomePage();
                 break;
             case 'fairs':
-                this.initializeFairsPage();
+                await this.initializeFairsPage();
                 break;
             case 'about':
                 this.initializeAboutPage();
@@ -135,9 +135,14 @@ class RentonCBFApp {
     /**
      * Initialize fairs page specific features
      */
-    initializeFairsPage() {
+    async initializeFairsPage() {
         console.log('🎪 Initializing fairs page features');
-        // Fairs page specific initialization
+        
+        // Initialize fair carousels
+        if (window.FairCarouselModule) {
+            const fairCarouselModule = new window.FairCarouselModule();
+            await fairCarouselModule.init();
+        }
     }
 
     /**

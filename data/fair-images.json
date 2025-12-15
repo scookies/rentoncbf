@@ -1,0 +1,14 @@
+{
+  "fairImages": {
+    "midWinterFair": [
+      "images/midWinterFair/Children.jpg"
+    ],
+    "summerFair": [
+      "images/summerFair/macaron-hero-1.png",
+      "images/summerFair/Vendor (2).png"
+    ],
+    "preHolidayMarket": [
+      "images/preHolidayMarket/PST_3098.jpeg"
+    ]
+  }
+}
