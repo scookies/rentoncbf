@@ -96,12 +96,10 @@ class NavigationModule {
                 headerHeight = header.offsetHeight;
             }
             
-            console.log('Header height:', headerHeight, 'Target section:', targetId); // Debug log
             
             const additionalOffset = 40; // Extra space to ensure title is clearly visible
             const targetPosition = targetSection.offsetTop - headerHeight - additionalOffset;
             
-            console.log('Target position:', targetPosition, 'Section offset:', targetSection.offsetTop); // Debug log
             
             window.scrollTo({
                 top: Math.max(0, targetPosition), // Ensure we don't scroll above the page

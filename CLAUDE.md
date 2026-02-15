@@ -59,9 +59,10 @@ All pages include responsive navigation:
 
 ### Key Architectural Decisions
 
-**Header Component**: Instead of duplicating header HTML across pages, use `HeaderComponent.render()` with options:
-- `showAsH1: true` for homepage (SEO)
-- `showAsH1: false` for other pages (renders as link)
+**Header Component**: DRY principle implementation - all pages use `HeaderComponent` instead of duplicated HTML:
+- Renders consistent header structure across all pages
+- SEO-optimized: H1 on homepage, clickable links on other pages
+- NavigationModule handles all interactions (hamburger menu, smooth scrolling)
 
 **Module Initialization**: The main app initializes modules based on page type:
 - Home page: Hero effects, stat counters
@@ -87,9 +88,10 @@ All pages include responsive navigation:
 - `styles/variables.css` - All CSS custom properties and color system
 
 ### Modules (Independent Features)
-- `js/modules/navigation.js` - Mobile menu, smooth scrolling, active states
-- `js/modules/carousel.js` - All carousel/slider functionality with touch support
-- `js/components/header.js` - Reusable header component (eliminates duplication)
+- `js/modules/navigation.js` - Mobile menu, smooth scrolling, active states, header interactions
+- `js/modules/carousel.js` - All carousel/slider functionality with touch support  
+- `js/modules/video-carousel.js` - Video carousel for upcoming fair page
+- `js/components/header.js` - Reusable header component (DRY principle, rendering only)
 - `js/utils/helpers.js` - Utility functions (debounce, notifications, validation, etc.)
 
 ### Content & Specs
@@ -111,15 +113,46 @@ All pages include responsive navigation:
 
 ## Recent Updates
 
-**Hero Stats Enhancement**: All hero sections now include 4 statistics:
-- Young Entrepreneurs count
-- Fairs hosted information  
-- $5,000+ Youth Revenue (newly added)
-- Success stories/impact metrics
+**DRY Implementation**: Applied DRY principles across the codebase:
+- Eliminated hardcoded headers from all HTML pages (4 pages)  
+- Centralized header rendering in `HeaderComponent`
+- Removed duplicate navigation event listeners
+- Fixed hamburger menu conflicts between HeaderComponent and NavigationModule
 
-**Responsive Navigation**: Added mobile-friendly hamburger menu to all pages with proper JavaScript functionality.
+**Code Cleanup**: 
+- Removed debug console.log statements
+- Added comprehensive `.gitignore` file
+- Cleaned up unused methods in HeaderComponent
+- Separated concerns: HeaderComponent handles rendering, NavigationModule handles interactions
 
-**CSS Standards Cleanup**: Removed page-specific hero overrides to ensure consistent responsive behavior across all pages.
+**Sponsor Logo Alignment**: Fixed all responsive alignment issues:
+- Left-aligned sponsor logos across all screen sizes
+- Fixed CSS Grid centering conflicts in `.fair-card` 
+- Consistent alignment at container, grid, and individual logo levels
+
+**Responsive Navigation**: Mobile hamburger menu works consistently across all pages.
+
+## Development Guidelines
+
+**Code Quality Standards**:
+- Follow DRY (Don't Repeat Yourself) principles
+- Use HeaderComponent for all pages instead of hardcoded HTML
+- Separate concerns: Components handle rendering, Modules handle interactions
+- Remove debug console.log statements before production
+- Use semantic HTML and proper accessibility attributes
+
+**File Organization**:
+- Development utilities are excluded via `.gitignore`
+- Components in `/js/components/` for reusable UI elements
+- Modules in `/js/modules/` for feature-specific functionality  
+- Configuration centralized in `/js/config.js`
+- CSS variables in `/styles/variables.css`
+
+**Performance**:
+- Modular JavaScript loading prevents blocking
+- CSS uses efficient selectors and avoids redundancy
+- Images optimized for web delivery
+- Intersection Observer for scroll animations
 
 ## Debugging
 

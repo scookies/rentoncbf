@@ -117,7 +117,6 @@ class FairCarouselModule {
                 
                 carouselContainer.innerHTML = carouselHTML;
                 
-                console.log(`Loaded ${images.length} images for ${fairName}`);
             } catch (error) {
                 console.error(`Error loading images for ${fairName}:`, error);
                 carouselContainer.innerHTML = '<p>Unable to load images for this fair.</p>';

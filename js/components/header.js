@@ -6,7 +6,6 @@
 class HeaderComponent {
     constructor() {
         this.config = window.SiteConfig;
-        this.isHomePage = this.isCurrentPage('index.html');
     }
 
     /**
@@ -18,18 +17,16 @@ class HeaderComponent {
         const { showAsH1 = false } = options;
         
         return `
-            <header class="header">
-                <nav class="nav">
-                    <div class="nav-container">
-                        <div class="nav-brand">
-                            ${this.renderLogo()}
-                            ${this.renderBrandTitle(showAsH1)}
-                        </div>
-                        ${this.renderNavigation()}
-                        ${this.renderMobileToggle()}
+            <nav class="nav">
+                <div class="nav-container">
+                    <div class="nav-brand">
+                        ${this.renderLogo()}
+                        ${this.renderBrandTitle(showAsH1)}
                     </div>
-                </nav>
-            </header>
+                    ${this.renderNavigation()}
+                    ${this.renderMobileToggle()}
+                </div>
+            </nav>
         `;
     }
 
@@ -39,9 +36,9 @@ class HeaderComponent {
      */
     renderLogo() {
         return `
-            <div class="logo">
+            <a href="index.html" class="logo">
                 <img src="${this.config.site.logo}" alt="${this.config.site.logoAlt}" />
-            </div>
+            </a>
         `;
     }
 
@@ -62,16 +59,24 @@ class HeaderComponent {
      * @returns {string} - Navigation HTML
      */
     renderNavigation() {
-        const navItems = this.config.navigation.primary.map(item => {
-            const href = item.page ? item.page + item.href : item.href;
-            return `<li><a href="${href}" class="nav-link">${item.label}</a></li>`;
-        }).join('');
-
+        // Use hardcoded navigation structure to maintain existing functionality
         return `
             <div class="nav-menu" id="nav-menu">
-                <ul class="nav-list">
-                    ${navItems}
-                </ul>
+                <nav>
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="index.html#our-story" class="nav-link">Our Story</a></li>
+                        <li><a href="index.html#success-stories" class="nav-link">Success Stories</a></li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link has-dropdown">Fairs</a>
+                            <div class="nav-dropdown">
+                                <a href="upcoming-fair.html" class="nav-dropdown-item">Upcoming Fair</a>
+                                <a href="fairs.html" class="nav-dropdown-item">Past Fairs</a>
+                            </div>
+                        </li>
+                        <li><a href="sponsors.html" class="nav-link">Sponsor Us</a></li>
+                    </ul>
+                </nav>
             </div>
         `;
     }
@@ -91,90 +96,11 @@ class HeaderComponent {
     }
 
     /**
-     * Initialize header functionality
+     * Initialize header functionality (scroll effects handled by NavigationModule)
      */
     init() {
-        this.initNavigation();
-        this.initScrollEffects();
-    }
-
-    /**
-     * Initialize navigation functionality
-     */
-    initNavigation() {
-        const navToggle = document.getElementById('nav-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        
-        if (!navToggle || !navMenu) return;
-
-        // Toggle mobile menu
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
-
-        // Close menu when clicking on links
-        const navLinks = navMenu.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            }
-        });
-    }
-
-    /**
-     * Initialize scroll effects for header
-     */
-    initScrollEffects() {
-        const header = document.querySelector('.header');
-        if (!header) return;
-
-        const { scrollThreshold, transparentBg, scrolledBg } = this.config.ui.header;
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > scrollThreshold) {
-                header.style.background = scrolledBg;
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = transparentBg;
-                header.style.boxShadow = 'none';
-            }
-        });
-    }
-
-    /**
-     * Check if current page matches the given page name
-     * @param {string} pageName - Name of the page to check
-     * @returns {boolean} - Whether current page matches
-     */
-    isCurrentPage(pageName) {
-        const currentPath = window.location.pathname;
-        return currentPath.endsWith(pageName) || 
-               (pageName === 'index.html' && currentPath.endsWith('/'));
-    }
-
-    /**
-     * Inject header into the DOM
-     * @param {string} selector - CSS selector where to inject the header
-     * @param {Object} options - Options for rendering
-     */
-    inject(selector = 'body', options = {}) {
-        const target = document.querySelector(selector);
-        if (target) {
-            const isHomePage = this.isCurrentPage('index.html');
-            const headerHTML = this.render({ showAsH1: isHomePage, ...options });
-            target.insertAdjacentHTML('afterbegin', headerHTML);
-            this.init();
-        }
+        // HeaderComponent only handles rendering, NavigationModule handles all interactions
+        console.log('✅ HeaderComponent initialized (rendering only)');
     }
 }
 

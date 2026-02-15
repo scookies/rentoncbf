@@ -367,6 +367,8 @@ section {
   padding: var(--space-2xl);
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(30, 144, 255, 0.1);
+  align-items: start;
+  justify-items: start;
 }
 
 .fair-info {
@@ -418,7 +420,7 @@ section {
 .sponsor-logo {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: var(--color-white);
   padding: var(--space-sm);
   border-radius: var(--radius-md);
@@ -727,7 +729,7 @@ section {
   }
   
   .sponsor-logos-grid {
-    align-items: center;
+    align-items: flex-start;
   }
   
   .sponsor-logo img {
@@ -2628,11 +2630,71 @@ section {
     font-size: 1rem;
     margin: 0 var(--space-sm);
   }
+  
+  /* Tablet specific adjustments */
+  .upcoming-fair {
+    padding: var(--space-xl) 0;
+  }
+  
+  .fair-description h3 {
+    font-size: 1.5rem;
+  }
+  
+  .sponsor-logo img {
+    max-width: 140px;
+    max-height: 80px;
+  }
 }
 
 @media (max-width: 480px) {
   .hero-upcoming-fair .video-carousel {
     margin: 0 var(--space-md);
+    max-width: calc(100vw - 2 * var(--space-md));
+  }
+  
+  .video-carousel-container {
+    border-radius: var(--radius-lg);
+  }
+  
+  .hero-upcoming-fair .video-container {
+    height: 40vh;
+    min-height: 250px;
+    max-height: 350px;
+  }
+  
+  .upcoming-fair {
+    padding: var(--space-lg) 0;
+  }
+  
+  .fair-description h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .fair-description p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .sponsor-logos h4 {
+    font-size: 0.8rem;
+    text-align: left;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .sponsor-logos-grid {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .sponsor-logo {
+    max-width: 120px;
+    padding: var(--space-xs);
+  }
+  
+  .sponsor-logo img {
+    max-width: 120px;
+    max-height: 60px;
   }
 }
 

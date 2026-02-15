@@ -27,19 +27,30 @@ class RentonCBFApp {
             console.log('🚀 Initializing Renton CBF Application...');
             
             // Initialize core modules in order
+            console.log('🔧 Starting module initialization...');
             await this.initializeModules();
+            console.log('✅ Modules initialized');
             
-            // Initialize page-specific functionality
+            // Initialize page-specific functionality  
+            console.log('📄 Starting page-specific initialization...');
             await this.initializePageSpecific();
+            console.log('✅ Page-specific initialization complete');
             
             // Set up global event handlers
+            console.log('🌐 Setting up global event handlers...');
             this.initializeGlobalEvents();
+            console.log('✅ Global event handlers set up');
             
             this.isInitialized = true;
             console.log('✅ Application initialized successfully');
             
         } catch (error) {
             console.error('❌ Application initialization failed:', error);
+            console.error('Error details:', {
+                message: error.message,
+                stack: error.stack,
+                currentPage: this.getCurrentPage()
+            });
             this.handleInitializationError(error);
         }
     }
@@ -55,9 +66,42 @@ class RentonCBFApp {
     }
 
     /**
+     * Initialize and render header component
+     */
+    async initializeHeader() {
+        try {
+            const headerContainer = document.getElementById('header');
+            if (!headerContainer) {
+                console.warn('Header container not found');
+                return;
+            }
+
+            const headerComponent = new HeaderComponent();
+            const isHomePage = this.getCurrentPage() === 'index';
+            
+            // Render header HTML
+            headerContainer.innerHTML = headerComponent.render({ showAsH1: isHomePage });
+            
+            // Initialize header functionality
+            headerComponent.init();
+            
+            // Store reference for later use
+            this.modules.set('header', headerComponent);
+            console.log('✅ Header component initialized');
+            
+        } catch (error) {
+            console.error('❌ Header initialization failed:', error);
+            throw error;
+        }
+    }
+
+    /**
      * Initialize all core modules
      */
     async initializeModules() {
+        // Initialize header first
+        await this.initializeHeader();
+        
         const moduleInitializers = [
             { name: 'navigation', class: NavigationModule, required: true },
             { name: 'heroStats', class: HeroStatsModule, required: false },
@@ -105,6 +149,12 @@ class RentonCBFApp {
             case 'fairs':
                 await this.initializeFairsPage();
                 break;
+            case 'upcoming-fair':
+                this.initializeUpcomingFairPage();
+                break;
+            case 'sponsors':
+                this.initializeSponsorsPage();
+                break;
             case 'about':
                 this.initializeAboutPage();
                 break;
@@ -151,6 +201,23 @@ class RentonCBFApp {
     initializeAboutPage() {
         console.log('ℹ️ Initializing about page features');
         // About page specific initialization
+    }
+
+    /**
+     * Initialize upcoming fair page specific features
+     */
+    initializeUpcomingFairPage() {
+        console.log('🎪 Initializing upcoming fair page features');
+        // Upcoming fair page specific initialization
+        // Video carousel is handled by video-carousel.js module
+    }
+
+    /**
+     * Initialize sponsors page specific features
+     */
+    initializeSponsorsPage() {
+        console.log('💰 Initializing sponsors page features');
+        // Sponsors page specific initialization
     }
 
     /**
