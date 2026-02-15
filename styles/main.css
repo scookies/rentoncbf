@@ -360,7 +360,7 @@ section {
 /* Upcoming Fair */
 .fair-card {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto;
   gap: var(--space-2xl);
   background: var(--color-white);
   border-radius: var(--radius-xl);
@@ -391,6 +391,50 @@ section {
 .fair-description h3 {
   margin-bottom: var(--space-md);
   color: var(--color-trust-blue);
+}
+
+.sponsor-logos {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.sponsor-logos h4 {
+  margin-bottom: var(--space-md);
+  color: var(--color-deep-navy);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-semibold);
+  text-align: left;
+}
+
+.sponsor-logos-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.sponsor-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease;
+}
+
+.sponsor-logo:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.sponsor-logo img {
+  max-width: 200px;
+  max-height: 100px;
+  object-fit: contain;
 }
 
 /* Our Story */
@@ -680,6 +724,15 @@ section {
   .fair-card {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
+  }
+  
+  .sponsor-logos-grid {
+    align-items: center;
+  }
+  
+  .sponsor-logo img {
+    max-width: 150px;
+    max-height: 75px;
   }
 
   .story-content {
