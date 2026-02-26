@@ -1,0 +1,2 @@
+currentVendorVideos/*.mov filter=lfs diff=lfs merge=lfs -text
+currentVendorVideos/*.mp4 filter=lfs diff=lfs merge=lfs -text
