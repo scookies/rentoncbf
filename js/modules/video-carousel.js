@@ -48,8 +48,7 @@ class VideoCarousel {
         // Since we can't directly list directory contents in a browser,
         // we'll define the known video files from the ls command output
         const knownVideos = [
-            "Hadlie's Fantasy Bath Bombs.mp4",
-            "JJ's Crafts.mp4"
+            "Hadlie's Fantasy Bath Bombs.mp4"
         ];
 
         for (const filename of knownVideos) {
