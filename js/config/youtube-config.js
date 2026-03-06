@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		'mswFroYx0-4',
 		'IxZtfh7IRzE',
 		'hVAv-ElXqJU',
-		'sZ7zh9GXLyk',// Add more video IDs as needed
+		'sZ7zh9GXLyk',
+		'3VxYAjlC7Wk',// Add more video IDs as needed
             ]);
     }
 });
