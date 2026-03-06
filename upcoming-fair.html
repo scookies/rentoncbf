@@ -16,20 +16,22 @@
     </header>
 
     <main>
-        <!-- Hero Section with Video Carousel -->
+        <!-- Hero Section with YouTube API Videos -->
         <section class="hero hero-upcoming-fair">
             <div class="container">
-                <div class="video-carousel" role="region" aria-label="Vendor showcase videos">
-                    <div class="video-carousel-container">
-                        <div class="video-carousel-track" id="video-track">
-                            <!-- Videos will be loaded dynamically -->
+                <div class="youtube-api-container" role="region" aria-label="Vendor showcase videos">
+                    <div class="video-carousel-wrapper">
+                        <div class="video-carousel" id="video-grid">
+                            <!-- Videos will be loaded via YouTube API -->
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading vendor videos...</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="video-carousel-controls">
-                        <button class="carousel-btn carousel-btn-prev" id="prevBtn" aria-label="Previous video">
+                        <button class="carousel-nav carousel-nav-prev" id="carousel-prev" aria-label="Previous video">
                             <i class="fas fa-chevron-left"></i>
                         </button>
-                        <button class="carousel-btn carousel-btn-next" id="nextBtn" aria-label="Next video">
+                        <button class="carousel-nav carousel-nav-next" id="carousel-next" aria-label="Next video">
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
@@ -117,7 +119,8 @@
     <script src="js/modules/upcoming-fair.js"></script>
     <script src="js/modules/carousel.js"></script>
     <script src="js/components/header.js"></script>
-    <script src="js/modules/video-carousel.js"></script>
+    <script src="js/modules/youtube-api.js"></script>
+    <script src="js/config/youtube-config.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

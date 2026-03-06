@@ -209,7 +209,7 @@ class RentonCBFApp {
     initializeUpcomingFairPage() {
         console.log('🎪 Initializing upcoming fair page features');
         // Upcoming fair page specific initialization
-        // Video carousel is handled by video-carousel.js module
+        // YouTube API videos are handled by youtube-api.js module
     }
 
     /**
