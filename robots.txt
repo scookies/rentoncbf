@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://rentoncbf.com/sitemap.xml
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Disallow access to admin or config files
+Disallow: /js/config/
+Disallow: /*.json$
+Disallow: /node_modules/
+Disallow: /.git/
+
+# Allow access to important resources
+Allow: /images/
+Allow: /styles/
+Allow: /js/

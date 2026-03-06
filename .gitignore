@@ -35,3 +35,8 @@ yarn-error.log*
 # Backup files
 *.bak
 *.backup
+
+# Server configuration files (hosting-specific)
+.htaccess
+.htpasswd
+web.config
