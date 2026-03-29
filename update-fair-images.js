@@ -21,6 +21,7 @@ const path = require('path');
 
 // Configuration
 const FAIR_FOLDERS = {
+    'cascadeFamilyFunDay': 'Cascade Family Fun Day',
     'midWinterFair': 'Mid Winter Fair',
     'summerFair': 'Summer Fair',
     'preHolidayMarket': 'Pre-Holiday Market'
