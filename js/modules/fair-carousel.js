@@ -33,7 +33,7 @@ class FairCarouselModule {
 
     async getExistingImages(folderName) {
         // Final fallback - hardcoded image map
-                                                                const imageMap = {
+                                                                        const imageMap = {
             'cascadeFamilyFunDay': [
                 'images/cascadeFamilyFunDay/CBF_7734.jpeg',
                 'images/cascadeFamilyFunDay/CBF_7762.jpeg',
