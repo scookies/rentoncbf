@@ -18,6 +18,7 @@ window.SiteConfig = {
             { text: 'Home', href: 'index.html', external: false },
             { text: 'Our Story', href: 'index.html#our-story', external: false },
             { text: 'Success Stories', href: 'index.html#success-stories', external: false },
+            { text: 'Learn', href: 'learn.html', external: false },
             { 
                 text: 'Fairs', 
                 dropdown: [

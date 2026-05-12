@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>How to Price Your Product - Interactive Lesson | Renton CBF</title>
+    <meta name="title" content="How to Price Your Product - Interactive Lesson">
+    <meta name="description" content="Learn how to set the right price for your business products through this interactive lesson with quizzes and exercises designed for young entrepreneurs.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/RentonCBFLogo.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/lessons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="lesson-body">
+    <header class="lesson-header">
+        <div class="container">
+            <div class="lesson-nav">
+                <a href="../learn.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Learn
+                </a>
+                <div class="lesson-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-text" id="progressText">Step 1 of 5</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-main">
+        <div class="lesson-container">
+            <!-- Step 1: Introduction -->
+            <div class="lesson-step active" data-step="1">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h1 class="step-title">
+                            <i class="fas fa-dollar-sign step-icon"></i>
+                            How to Price Your Product
+                        </h1>
+                        <p class="step-subtitle">Let's learn how to set the perfect price for your business!</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="content-text">
+                            <h2>Why is Pricing Important?</h2>
+                            <p>Setting the right price is super important for your business because:</p>
+                            <ul class="benefits-list">
+                                <li><i class="fas fa-check-circle"></i> You need to make money to keep your business running</li>
+                                <li><i class="fas fa-check-circle"></i> If the price is too high, people won't buy</li>
+                                <li><i class="fas fa-check-circle"></i> If the price is too low, you won't make enough money</li>
+                                <li><i class="fas fa-check-circle"></i> The right price makes both you and your customers happy!</li>
+                            </ul>
+                        </div>
+                        <div class="content-visual">
+                            <div class="price-scale">
+                                <div class="scale-item too-low">
+                                    <span class="price">$2</span>
+                                    <span class="label">Too Low 😞</span>
+                                    <span class="example">Handmade bracelet<br>(costs $4 to make)</span>
+                                </div>
+                                <div class="scale-item just-right">
+                                    <span class="price">$8</span>
+                                    <span class="label">Just Right! 😊</span>
+                                    <span class="example">Handmade bracelet<br>(covers costs + profit)</span>
+                                </div>
+                                <div class="scale-item too-high">
+                                    <span class="price">$25</span>
+                                    <span class="label">Too High 😕</span>
+                                    <span class="example">Handmade bracelet<br>(customers won't pay this)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mini Quiz 1 -->
+                    <div class="quiz-card">
+                        <h3>Quick Check!</h3>
+                        <div class="quiz-question">
+                            <p><strong>True or False:</strong> All businesses should charge the same price for similar products?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-answer="false" data-correct="true">False</button>
+                                <button class="quiz-option" data-answer="true" data-correct="false">True</button>
+                            </div>
+                        </div>
+                        <div class="quiz-feedback" id="quiz1-feedback"></div>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button class="next-btn" id="step1-next" disabled>
+                        Next: Understanding Costs
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Understanding Costs -->
+            <div class="lesson-step" data-step="2">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h1 class="step-title">
+                            <i class="fas fa-calculator step-icon"></i>
+                            Understanding Your Costs
+                        </h1>
+                        <p class="step-subtitle">Before setting a price, you need to know what things cost to make!</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h2>What Goes Into Your Costs?</h2>
+                        <div class="cost-types">
+                            <div class="cost-type">
+                                <div class="cost-icon">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <div class="cost-info">
+                                    <h3>Materials</h3>
+                                    <p>Everything you need to make your product (fabric, wood, ingredients, etc.)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cost-type">
+                                <div class="cost-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="cost-info">
+                                    <h3>Time</h3>
+                                    <p>How long it takes you to make the product (your time is valuable!)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cost-type">
+                                <div class="cost-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="cost-info">
+                                    <h3>Tools & Equipment</h3>
+                                    <p>Special tools, machines, or equipment needed</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="example-section">
+                            <h3>Let's Look at Different Business Types:</h3>
+                            <div class="business-examples">
+                                <div class="business-card" data-business="farmer">
+                                    <div class="business-icon">🌱</div>
+                                    <h4>Farmer</h4>
+                                    <p>Sells fresh vegetables</p>
+                                </div>
+                                <div class="business-card" data-business="artisan">
+                                    <div class="business-icon">🎨</div>
+                                    <h4>Artisan/Crafter</h4>
+                                    <p>Makes handmade crafts</p>
+                                </div>
+                                <div class="business-card" data-business="food">
+                                    <div class="business-icon">🍪</div>
+                                    <h4>Food Vendor</h4>
+                                    <p>Bakes and sells treats</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Cost Explorer -->
+                    <div class="interactive-card">
+                        <h3>Cost Explorer</h3>
+                        <p>Click on a business type to see what their costs might include:</p>
+                        
+                        <div class="cost-explorer" id="costExplorer">
+                            <div class="explorer-placeholder">
+                                👆 Click on a business type above to explore their costs!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button class="prev-btn" id="step2-prev">
+                        <i class="fas fa-arrow-left"></i>
+                        Previous
+                    </button>
+                    <button class="next-btn" id="step2-next">
+                        Next: Calculate Costs
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3: Interactive Exercise -->
+            <div class="lesson-step" data-step="3">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h1 class="step-title">
+                            <i class="fas fa-calculator step-icon"></i>
+                            Let's Calculate Some Costs!
+                        </h1>
+                        <p class="step-subtitle">Time to practice! Help Sarah figure out how much it costs to make her bracelets.</p>
+                    </div>
+                    
+                    <div class="exercise-card">
+                        <div class="scenario">
+                            <div class="character">
+                                <div class="character-avatar">👧</div>
+                                <h3>Meet Sarah</h3>
+                                <p>Sarah makes beautiful friendship bracelets to sell at the Children's Business Fair.</p>
+                            </div>
+                        </div>
+
+                        <div class="cost-calculator">
+                            <h3>Help Sarah Calculate Her Costs</h3>
+                            
+                            <div class="calculator-section">
+                                <h4>Materials:</h4>
+                                <div class="cost-input">
+                                    <label>String/Thread:</label>
+                                    <input type="number" id="materials-string" value="0.50" step="0.01" min="0">
+                                    <span class="currency">$</span>
+                                </div>
+                                <div class="cost-input">
+                                    <label>Beads (optional):</label>
+                                    <input type="number" id="materials-beads" value="1.00" step="0.01" min="0">
+                                    <span class="currency">$</span>
+                                </div>
+                            </div>
+
+                            <div class="calculator-section">
+                                <h4>Time:</h4>
+                                <div class="cost-input">
+                                    <label>Time to make one bracelet:</label>
+                                    <input type="number" id="time-minutes" value="30" step="1" min="1">
+                                    <span class="unit">minutes</span>
+                                </div>
+                                <div class="cost-input">
+                                    <label>How much should you earn per hour?</label>
+                                    <input type="number" id="hourly-rate" value="10.00" step="0.50" min="0">
+                                    <span class="currency">$ per hour</span>
+                                </div>
+                            </div>
+
+                            <div class="cost-summary">
+                                <div class="summary-line">
+                                    <span>Materials Cost:</span>
+                                    <span id="total-materials">$1.50</span>
+                                </div>
+                                <div class="summary-line">
+                                    <span>Time Cost:</span>
+                                    <span id="total-time">$5.00</span>
+                                </div>
+                                <div class="summary-line total">
+                                    <span><strong>Total Cost:</strong></span>
+                                    <span id="total-cost"><strong>$6.50</strong></span>
+                                </div>
+                                <div class="cost-explanation">
+                                    <p><em>This is how much it costs Sarah to make one bracelet. She should charge at least this much to break even!</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mini Quiz 2 -->
+                    <div class="quiz-card">
+                        <h3>Quick Check!</h3>
+                        <div class="quiz-question">
+                            <p><strong>If Sarah's total cost is $6.50, what's the MINIMUM she should charge?</strong></p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-answer="5.00" data-correct="false">$5.00</button>
+                                <button class="quiz-option" data-answer="6.50" data-correct="true">$6.50</button>
+                                <button class="quiz-option" data-answer="3.00" data-correct="false">$3.00</button>
+                            </div>
+                        </div>
+                        <div class="quiz-feedback" id="quiz2-feedback"></div>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button class="prev-btn" id="step3-prev">
+                        <i class="fas fa-arrow-left"></i>
+                        Previous
+                    </button>
+                    <button class="next-btn" id="step3-next" disabled>
+                        Next: Pricing Strategies
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 4: Pricing Strategies -->
+            <div class="lesson-step" data-step="4">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h1 class="step-title">
+                            <i class="fas fa-lightbulb step-icon"></i>
+                            Smart Pricing Strategies
+                        </h1>
+                        <p class="step-subtitle">Now that you know your costs, let's learn different ways to set your price!</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h2>Different Ways to Price Your Product</h2>
+                        
+                        <div class="pricing-strategies">
+                            <div class="strategy-card">
+                                <div class="strategy-icon">
+                                    <i class="fas fa-plus-circle"></i>
+                                </div>
+                                <h3>Cost-Plus Pricing</h3>
+                                <p>Take your cost and add some extra for profit</p>
+                                <div class="strategy-example">
+                                    <strong>Example:</strong> Cost $6.50 + Profit $3.50 = <span class="price-tag">$10.00</span>
+                                </div>
+                            </div>
+
+                            <div class="strategy-card">
+                                <div class="strategy-icon">
+                                    <i class="fas fa-search-dollar"></i>
+                                </div>
+                                <h3>Market Research</h3>
+                                <p>Look at what similar products cost and price yours competitively</p>
+                                <div class="strategy-example">
+                                    <strong>Example:</strong> Other bracelets sell for $8-12, so price yours at <span class="price-tag">$9.00</span>
+                                </div>
+                            </div>
+
+                            <div class="strategy-card">
+                                <div class="strategy-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h3>Value-Based Pricing</h3>
+                                <p>Price based on how special or unique your product is</p>
+                                <div class="strategy-example">
+                                    <strong>Example:</strong> Custom name bracelets are special, so charge <span class="price-tag">$15.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pricing-tips">
+                            <h3>Smart Pricing Tips:</h3>
+                            <div class="tips-list">
+                                <div class="tip">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Always cover your costs first</span>
+                                </div>
+                                <div class="tip">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Research what competitors charge</span>
+                                </div>
+                                <div class="tip">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Consider what makes your product special</span>
+                                </div>
+                                <div class="tip">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Don't be afraid to adjust prices if needed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interactive-card">
+                        <h3>Pricing Practice</h3>
+                        <p>Help these young entrepreneurs choose the best pricing strategy:</p>
+                        
+                        <div class="pricing-scenarios">
+                            <div class="scenario-card" data-scenario="1">
+                                <h4>🧁 Maya's Cupcakes</h4>
+                                <p>Maya bakes amazing cupcakes. Her costs are $2 per cupcake. Similar cupcakes at the store cost $4-5.</p>
+                                <div class="scenario-options">
+                                    <button class="scenario-option" data-answer="3">$3.00</button>
+                                    <button class="scenario-option" data-answer="4.5" data-correct="true">$4.50</button>
+                                    <button class="scenario-option" data-answer="8">$8.00</button>
+                                </div>
+                                <div class="scenario-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button class="prev-btn" id="step4-prev">
+                        <i class="fas fa-arrow-left"></i>
+                        Previous
+                    </button>
+                    <button class="next-btn" id="step4-next" disabled>
+                        Next: Final Quiz
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 5: Final Quiz -->
+            <div class="lesson-step" data-step="5">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h1 class="step-title">
+                            <i class="fas fa-trophy step-icon"></i>
+                            Final Quiz
+                        </h1>
+                        <p class="step-subtitle">Let's see how much you've learned about pricing!</p>
+                    </div>
+                    
+                    <div class="final-quiz">
+                        <div class="quiz-question-card active" data-question="1">
+                            <div class="question-number">Question 1 of 3</div>
+                            <h3>What should you consider FIRST when setting a price?</h3>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-answer="competitor" data-correct="false">What competitors charge</button>
+                                <button class="quiz-option" data-answer="costs" data-correct="true">Your costs to make the product</button>
+                                <button class="quiz-option" data-answer="random" data-correct="false">Pick a random number</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question-card" data-question="2">
+                            <div class="question-number">Question 2 of 3</div>
+                            <h3>If it costs you $5 to make a product, what's a good selling price?</h3>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-answer="3" data-correct="false">$3.00</button>
+                                <button class="quiz-option" data-answer="5" data-correct="false">$5.00</button>
+                                <button class="quiz-option" data-answer="8" data-correct="true">$8.00</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question-card" data-question="3">
+                            <div class="question-number">Question 3 of 3</div>
+                            <h3>Which pricing strategy considers how special your product is?</h3>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-answer="cost-plus" data-correct="false">Cost-plus pricing</button>
+                                <button class="quiz-option" data-answer="value" data-correct="true">Value-based pricing</button>
+                                <button class="quiz-option" data-answer="market" data-correct="false">Market research pricing</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-results" id="quizResults">
+                            <div class="results-content">
+                                <div class="results-score">
+                                    <div class="score-circle">
+                                        <span id="scorePercentage">100%</span>
+                                    </div>
+                                    <h3>Congratulations!</h3>
+                                    <p id="resultsMessage">You're ready to price your products like a pro!</p>
+                                </div>
+                                <div class="results-actions">
+                                    <button class="restart-quiz-btn" id="restartQuiz">
+                                        <i class="fas fa-redo"></i>
+                                        Try Again
+                                    </button>
+                                    <a href="../learn.html" class="complete-lesson-btn">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        Back to Learn
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button class="prev-btn" id="step5-prev">
+                        <i class="fas fa-arrow-left"></i>
+                        Previous
+                    </button>
+                    <button class="quiz-next-btn" id="quizNext" disabled>
+                        Next Question
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="finish-quiz-btn" id="finishQuiz" style="display: none;" disabled>
+                        See Results
+                        <i class="fas fa-trophy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/utils/helpers.js"></script>
+    <script src="../js/modules/quiz-engine.js"></script>
+    <script src="../js/modules/lesson-player.js"></script>
+</body>
+</html>
