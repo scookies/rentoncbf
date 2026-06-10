@@ -60,11 +60,11 @@
                     </p>
                     <div class="learning-stats">
                         <div class="stat-item">
-                            <span class="stat-number">1</span>
-                            <span class="stat-label">Lesson Available</span>
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Lessons Available</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">6</span>
+                            <span class="stat-number">5</span>
                             <span class="stat-label">More Coming Soon</span>
                         </div>
                         <div class="stat-item">
@@ -102,6 +102,33 @@
                         </div>
                         <div class="lesson-action">
                             <a href="lessons/pricing.html" class="lesson-start-btn">
+                                Start Lesson
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Marketing Lesson - Available -->
+                    <div class="lesson-card available" data-lesson="marketing">
+                        <div class="lesson-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="lesson-content">
+                            <h3 class="lesson-title">Marketing Your Products</h3>
+                            <p class="lesson-description">Discover how to tell people about your business and attract customers without the internet.</p>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">
+                                    <i class="far fa-clock"></i>
+                                    12-18 minutes
+                                </span>
+                                <span class="lesson-difficulty easy">
+                                    <i class="fas fa-star"></i>
+                                    Beginner
+                                </span>
+                            </div>
+                        </div>
+                        <div class="lesson-action">
+                            <a href="lessons/marketing.html" class="lesson-start-btn">
                                 Start Lesson
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -223,34 +250,8 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Renton Children's Business Fair</h3>
-                    <p>Empowering the next generation of entrepreneurs through creativity, innovation, and real business experience.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Discover</h4>
-                    <ul>
-                        <li><a href="fairs.html">Past Fairs</a></li>
-                        <li><a href="sponsors.html">Sponsor Us</a></li>
-                        <li><a href="learn.html">Learn</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect With Us</h4>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=61571426811079" class="social-link" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/rentoncbf" class="social-link" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.childrensbusinessfair.org/wa-renton" class="social-link" target="_blank" rel="noopener"><i class="fas fa-globe"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Renton Children's Business Fair. All rights reserved.</p>
-            </div>
-        </div>
+    <footer class="footer" id="footer">
+        <!-- Footer will be rendered by FooterComponent -->
     </footer>
 
     <script src="js/config.js"></script>
@@ -258,6 +259,7 @@
     <script src="js/modules/navigation.js"></script>
     <script src="js/modules/carousel.js"></script>
     <script src="js/components/header.js"></script>
+    <script src="js/components/footer.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

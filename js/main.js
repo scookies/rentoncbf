@@ -96,11 +96,41 @@ class RentonCBFApp {
     }
 
     /**
+     * Initialize and render footer component
+     */
+    async initializeFooter() {
+        try {
+            const footerContainer = document.getElementById('footer');
+            if (!footerContainer) {
+                console.warn('Footer container not found');
+                return;
+            }
+
+            const footerComponent = new FooterComponent();
+            
+            // Render footer HTML
+            footerContainer.innerHTML = footerComponent.render();
+            
+            // Initialize footer functionality
+            footerComponent.init();
+            
+            // Store reference for later use
+            this.modules.set('footer', footerComponent);
+            console.log('✅ Footer component initialized');
+            
+        } catch (error) {
+            console.error('❌ Footer initialization failed:', error);
+            throw error;
+        }
+    }
+
+    /**
      * Initialize all core modules
      */
     async initializeModules() {
-        // Initialize header first
+        // Initialize header and footer first
         await this.initializeHeader();
+        await this.initializeFooter();
         
         const moduleInitializers = [
             { name: 'navigation', class: NavigationModule, required: true },

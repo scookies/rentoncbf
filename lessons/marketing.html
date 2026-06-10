@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Marketing Your Products - Interactive Lesson | Renton CBF</title>
+    <meta name="title" content="Marketing Your Products - Interactive Lesson">
+    <meta name="description" content="Learn how to market your products effectively through this interactive lesson with exercises designed for young entrepreneurs. Perfect for school fairs!">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/RentonCBFLogo.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/lessons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="lesson-body">
+    <header class="lesson-header">
+        <div class="container">
+            <div class="lesson-nav">
+                <a href="../learn.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Learn
+                </a>
+                <div class="lesson-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-text" id="progressText">Step 1 of 5</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-main">
+        <div class="lesson-container">
+            <!-- Step 1: What is Marketing? -->
+            <div class="lesson-step active" data-step="1">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h1 class="step-title">
+                            <i class="fas fa-bullhorn step-icon"></i>
+                            What is Marketing?
+                        </h1>
+                        <p class="step-subtitle">Marketing is simply telling people about your awesome product!</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="content-text">
+                            <h2>Marketing Made Simple</h2>
+                            <p>Marketing has two main parts:</p>
+                            <ul class="benefits-list">
+                                <li><i class="fas fa-check-circle"></i> <strong>Letting people know</strong> your product exists</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Explaining why</strong> your product is great</li>
+                            </ul>
+                            
+                            <h3>You Already Know Marketing!</h3>
+                            <p>You see marketing everywhere around you:</p>
+                            <div class="marketing-examples">
+                                <div class="example-card">
+                                    <div class="example-icon">🍕</div>
+                                    <p><strong>School Lunch Menu</strong><br>Posted in the hallway so you know what's for lunch</p>
+                                </div>
+                                <div class="example-card">
+                                    <div class="example-icon">🎬</div>
+                                    <p><strong>Movie Trailers</strong><br>Show you why a movie will be exciting</p>
+                                </div>
+                                <div class="example-card">
+                                    <div class="example-icon">👫</div>
+                                    <p><strong>Friend's Recommendation</strong><br>"You should totally read this book!"</p>
+                                </div>
+                                <div class="example-card">
+                                    <div class="example-icon">👕</div>
+                                    <p><strong>Team T-Shirts</strong><br>Sports teams selling shirts at games</p>
+                                </div>
+                                <div class="example-card">
+                                    <div class="example-icon">📚</div>
+                                    <p><strong>Library Book Display</strong><br>"New books this week!" shelf at the library</p>
+                                </div>
+                                <div class="example-card">
+                                    <div class="example-icon">🎪</div>
+                                    <p><strong>School Fair Booths</strong><br>Colorful signs showing what each booth sells</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Game -->
+                    <div class="interactive-card">
+                        <h3>🕵️ Spot the Marketing Game!</h3>
+                        <p>Which of these are examples of marketing? Click on the ones you think are marketing:</p>
+                        
+                        <div class="marketing-scenarios">
+                            <div class="scenario-item" data-marketing="true">
+                                <div class="scenario-icon">📢</div>
+                                <p>A poster advertising the school play</p>
+                                <div class="scenario-feedback"></div>
+                            </div>
+                            <div class="scenario-item" data-marketing="false">
+                                <div class="scenario-icon">📖</div>
+                                <p>Reading a book quietly</p>
+                                <div class="scenario-feedback"></div>
+                            </div>
+                            <div class="scenario-item" data-marketing="true">
+                                <div class="scenario-icon">💬</div>
+                                <p>Telling friends about a cool video game</p>
+                                <div class="scenario-feedback"></div>
+                            </div>
+                            <div class="scenario-item" data-marketing="false">
+                                <div class="scenario-icon">🥪</div>
+                                <p>Eating lunch by yourself</p>
+                                <div class="scenario-feedback"></div>
+                            </div>
+                            <div class="scenario-item" data-marketing="true">
+                                <div class="scenario-icon">🍪</div>
+                                <p>Offering free cookie samples</p>
+                                <div class="scenario-feedback"></div>
+                            </div>
+                            <div class="scenario-item" data-marketing="false">
+                                <div class="scenario-icon">🏠</div>
+                                <p>Doing homework at home</p>
+                                <div class="scenario-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mini Quiz 1 -->
+                    <div class="quiz-card">
+                        <h3>Quick Check!</h3>
+                        <div class="quiz-question">
+                            <p><strong>True or False:</strong> Marketing means tricking people into buying things they don't need?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-answer="false" data-correct="true">False</button>
+                                <button class="quiz-option" data-answer="true" data-correct="false">True</button>
+                            </div>
+                        </div>
+                        <div class="quiz-feedback" id="quiz1-feedback"></div>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button class="next-btn" id="step1-next" disabled>
+                        Next: Know Your Customers
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Know Your Customers -->
+            <div class="lesson-step" data-step="2">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h1 class="step-title">
+                            <i class="fas fa-users step-icon"></i>
+                            Know Your Customers
+                        </h1>
+                        <p class="step-subtitle">Think about who would love your product most!</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h2>Who Comes to School Fairs?</h2>
+                        <p>Different types of customers look for different things:</p>
+                        
+                        <div class="customer-types">
+                            <div class="customer-type">
+                                <div class="customer-icon">
+                                    <i class="fas fa-child"></i>
+                                </div>
+                                <div class="customer-info">
+                                    <h3>Other Kids</h3>
+                                    <p><strong>What they want:</strong> Fun, cool, trendy items</p>
+                                    <p><strong>What they care about:</strong> Will my friends think this is awesome?</p>
+                                </div>
+                            </div>
+                            
+                            <div class="customer-type">
+                                <div class="customer-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="customer-info">
+                                    <h3>Parents</h3>
+                                    <p><strong>What they want:</strong> Quality items, supporting kids</p>
+                                    <p><strong>What they care about:</strong> Is this worth the money? Will it last?</p>
+                                </div>
+                            </div>
+                            
+                            <div class="customer-type">
+                                <div class="customer-icon">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <div class="customer-info">
+                                    <h3>Teachers</h3>
+                                    <p><strong>What they want:</strong> Educational or classroom supplies</p>
+                                    <p><strong>What they care about:</strong> Can I use this for teaching?</p>
+                                </div>
+                            </div>
+                            
+                            <div class="customer-type">
+                                <div class="customer-icon">
+                                    <i class="fas fa-gift"></i>
+                                </div>
+                                <div class="customer-info">
+                                    <h3>Grandparents</h3>
+                                    <p><strong>What they want:</strong> Something special from their grandkid's school</p>
+                                    <p><strong>What they care about:</strong> This will make a great memory!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customer Detective Game -->
+                    <div class="interactive-card">
+                        <h3>🔍 Customer Detective Game</h3>
+                        <p>Click on a product, then click on the customer who would most likely buy it:</p>
+                        
+                        <div class="detective-feedback" id="detective-feedback">
+                            <div class="instruction">
+                                <i class="fas fa-hand-pointer"></i>
+                                Click on a product below to get started!
+                            </div>
+                        </div>
+                        
+                        <div class="detective-game">
+                            <div class="products-column">
+                                <h4>Products:</h4>
+                                <div class="product-item draggable" data-product="slime">
+                                    <span class="product-emoji">🌈</span>
+                                    <span>Rainbow Slime</span>
+                                </div>
+                                <div class="product-item draggable" data-product="coffee">
+                                    <span class="product-emoji">☕</span>
+                                    <span>Coffee & Pastries</span>
+                                </div>
+                                <div class="product-item draggable" data-product="bookmarks">
+                                    <span class="product-emoji">📚</span>
+                                    <span>Educational Bookmarks</span>
+                                </div>
+                                <div class="product-item draggable" data-product="photo">
+                                    <span class="product-emoji">📸</span>
+                                    <span>School Photo Frames</span>
+                                </div>
+                            </div>
+                            
+                            <div class="customers-column">
+                                <h4>Best Customer:</h4>
+                                <div class="customer-dropzone" data-customer="kids">
+                                    <div class="dropzone-header">
+                                        <i class="fas fa-child"></i>
+                                        <span>Other Kids</span>
+                                    </div>
+                                    <div class="dropzone-area">Click here after selecting a product</div>
+                                </div>
+                                <div class="customer-dropzone" data-customer="parents">
+                                    <div class="dropzone-header">
+                                        <i class="fas fa-heart"></i>
+                                        <span>Parents</span>
+                                    </div>
+                                    <div class="dropzone-area">Click here after selecting a product</div>
+                                </div>
+                                <div class="customer-dropzone" data-customer="teachers">
+                                    <div class="dropzone-header">
+                                        <i class="fas fa-chalkboard-teacher"></i>
+                                        <span>Teachers</span>
+                                    </div>
+                                    <div class="dropzone-area">Click here after selecting a product</div>
+                                </div>
+                                <div class="customer-dropzone" data-customer="grandparents">
+                                    <div class="dropzone-header">
+                                        <i class="fas fa-gift"></i>
+                                        <span>Grandparents</span>
+                                    </div>
+                                    <div class="dropzone-area">Click here after selecting a product</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="check-answers-btn" id="check-detective-answers" disabled>Check My Answers</button>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button class="prev-btn" id="step2-prev">
+                        <i class="fas fa-arrow-left"></i>
+                        Previous
+                    </button>
+                    <button class="next-btn" id="step2-next" disabled>
+                        Next: Marketing Methods
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3: Offline Marketing Methods -->
+            <div class="lesson-step" data-step="3">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h1 class="step-title">
+                            <i class="fas fa-palette step-icon"></i>
+                            Offline Marketing Methods
+                        </h1>
+                        <p class="step-subtitle">You don't need the internet to spread the word!</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h2>4 Great Ways to Market at School Fairs</h2>
+                        
+                        <div class="marketing-methods">
+                            <div class="method-card" data-method="visual">
+                                <div class="method-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3>Visual Marketing</h3>
+                                <p>Catch people's attention with what they can see</p>
+                                <ul class="method-examples">
+                                    <li>Colorful signs and banners</li>
+                                    <li>Eye-catching product displays</li>
+                                    <li>Before/after photos of your crafts</li>
+                                    <li>Bright tablecloths and decorations</li>
+                                </ul>
+                            </div>
+
+                            <div class="method-card" data-method="word-of-mouth">
+                                <div class="method-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <h3>Word-of-Mouth Marketing</h3>
+                                <p>Let happy customers spread the word for you</p>
+                                <ul class="method-examples">
+                                    <li>Friends telling other friends</li>
+                                    <li>Family spreading the word</li>
+                                    <li>Happy customers coming back</li>
+                                    <li>Asking customers to tell others</li>
+                                </ul>
+                            </div>
+
+                            <div class="method-card" data-method="sample">
+                                <div class="method-icon">
+                                    <i class="fas fa-hand-holding"></i>
+                                </div>
+                                <h3>Sample Marketing</h3>
+                                <p>Let customers try before they buy</p>
+                                <ul class="method-examples">
+                                    <li>Free tastes of food products</li>
+                                    <li>Touch and feel crafts</li>
+                                    <li>Live demonstrations</li>
+                                    <li>Show how products work</li>
+                                </ul>
+                            </div>
+
+                            <div class="method-card" data-method="story">
+                                <div class="method-icon">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <h3>Story Marketing</h3>
+                                <p>Share the story behind your business</p>
+                                <ul class="method-examples">
+                                    <li>Why you started your business</li>
+                                    <li>How you make your product</li>
+                                    <li>What makes it special</li>
+                                    <li>Fun facts about your process</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Method Matcher Game -->
+                    <div class="interactive-card">
+                        <h3>🎯 Marketing Method Matcher</h3>
+                        <p>Read each scenario and choose the best marketing method:</p>
+                        
+                        <div class="matcher-scenarios">
+                            <div class="matcher-scenario" data-scenario="1">
+                                <div class="scenario-text">
+                                    <p><strong>Scenario:</strong> You make delicious brownies and want people to know how good they taste.</p>
+                                </div>
+                                <div class="method-options">
+                                    <button class="method-option" data-method="visual">Visual Marketing</button>
+                                    <button class="method-option" data-method="sample" data-correct="true">Sample Marketing</button>
+                                    <button class="method-option" data-method="story">Story Marketing</button>
+                                </div>
+                                <div class="matcher-feedback"></div>
+                            </div>
+
+                            <div class="matcher-scenario" data-scenario="2">
+                                <div class="scenario-text">
+                                    <p><strong>Scenario:</strong> Your booth looks plain and people are walking past without stopping.</p>
+                                </div>
+                                <div class="method-options">
+                                    <button class="method-option" data-method="visual" data-correct="true">Visual Marketing</button>
+                                    <button class="method-option" data-method="word-of-mouth">Word-of-Mouth</button>
+                                    <button class="method-option" data-method="story">Story Marketing</button>
+                                </div>
+                                <div class="matcher-feedback"></div>
+                            </div>
+
+                            <div class="matcher-scenario" data-scenario="3">
+                                <div class="scenario-text">
+                                    <p><strong>Scenario:</strong> A customer asks why your handmade jewelry is better than store-bought.</p>
+                                </div>
+                                <div class="method-options">
+                                    <button class="method-option" data-method="sample">Sample Marketing</button>
+                                    <button class="method-option" data-method="word-of-mouth">Word-of-Mouth</button>
+                                    <button class="method-option" data-method="story" data-correct="true">Story Marketing</button>
+                                </div>
+                                <div class="matcher-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Booth Makeover -->
+                    <div class="interactive-card">
+                        <h3>🎪 Booth Makeover Challenge</h3>
+                        <p>See the difference good marketing makes!</p>
+                        
+                        <div class="booth-comparison">
+                            <div class="booth-before">
+                                <h4>😞 Boring Booth</h4>
+                                <div class="booth-image">
+                                    <div class="boring-booth">
+                                        <div class="table">Plain table</div>
+                                        <div class="products">Products scattered</div>
+                                        <div class="sign">Small sign</div>
+                                    </div>
+                                </div>
+                                <p>No one stops to look...</p>
+                            </div>
+                            
+                            <div class="booth-after">
+                                <h4>🌟 Exciting Booth</h4>
+                                <div class="booth-image">
+                                    <div class="exciting-booth">
+                                        <div class="colorful-banner">AMAZING COOKIES!</div>
+                                        <div class="organized-display">Neat product display</div>
+                                        <div class="samples">Free samples!</div>
+                                        <div class="story-sign">Made with love!</div>
+                                    </div>
+                                </div>
+                                <p>Customers stop and buy!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button class="prev-btn" id="step3-prev">
+                        <i class="fas fa-arrow-left"></i>
+                        Previous
+                    </button>
+                    <button class="next-btn" id="step3-next">
+                        Next: Your Marketing Message
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 4: Create Your Marketing Message -->
+            <div class="lesson-step" data-step="4">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h1 class="step-title">
+                            <i class="fas fa-comment-dots step-icon"></i>
+                            Create Your Marketing Message
+                        </h1>
+                        <p class="step-subtitle">Practice your 30-second pitch!</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h2>The Simple Message Formula</h2>
+                        <p>A great marketing message has 4 parts:</p>
+                        
+                        <div class="message-formula">
+                            <div class="formula-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>What</h3>
+                                    <p>What you're selling (in 3 words or less)</p>
+                                    <div class="example">"Friendship bracelets"</div>
+                                </div>
+                            </div>
+                            
+                            <div class="formula-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>Why</h3>
+                                    <p>What makes it special (1 unique thing)</p>
+                                    <div class="example">"You can customize them"</div>
+                                </div>
+                            </div>
+                            
+                            <div class="formula-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Who</h3>
+                                    <p>Who it's perfect for</p>
+                                    <div class="example">"Perfect for best friends"</div>
+                                </div>
+                            </div>
+                            
+                            <div class="formula-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>Call to Action</h3>
+                                    <p>What you want them to do</p>
+                                    <div class="example">"Come pick your colors!"</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Builder -->
+                    <div class="interactive-card">
+                        <h3>🛠️ Message Builder Tool</h3>
+                        <p>Help these young entrepreneurs create their perfect pitch!</p>
+                        
+                        <div class="message-builder">
+                            <div class="entrepreneur" data-entrepreneur="emma">
+                                <div class="entrepreneur-info">
+                                    <div class="entrepreneur-avatar">👧</div>
+                                    <div class="entrepreneur-details">
+                                        <h4>Emma's Business</h4>
+                                        <p>Makes friendship bracelets with custom names and colors</p>
+                                    </div>
+                                </div>
+                                <div class="message-parts">
+                                    <div class="message-part">
+                                        <label>What (3 words max):</label>
+                                        <select class="message-input" data-part="what">
+                                            <option value="">Choose...</option>
+                                            <option value="friendship-bracelets" data-correct="true">Friendship bracelets</option>
+                                            <option value="jewelry-accessories">Jewelry accessories</option>
+                                            <option value="handmade-crafts">Handmade crafts</option>
+                                        </select>
+                                    </div>
+                                    <div class="message-part">
+                                        <label>Why (unique feature):</label>
+                                        <select class="message-input" data-part="why">
+                                            <option value="">Choose...</option>
+                                            <option value="custom-names" data-correct="true">With custom names</option>
+                                            <option value="many-colors">Lots of colors</option>
+                                            <option value="good-quality">High quality</option>
+                                        </select>
+                                    </div>
+                                    <div class="message-part">
+                                        <label>Who (target customer):</label>
+                                        <select class="message-input" data-part="who">
+                                            <option value="">Choose...</option>
+                                            <option value="best-friends" data-correct="true">Perfect for best friends</option>
+                                            <option value="all-kids">Great for any kid</option>
+                                            <option value="gift-givers">Good for gifts</option>
+                                        </select>
+                                    </div>
+                                    <div class="message-part">
+                                        <label>Call to Action:</label>
+                                        <select class="message-input" data-part="action">
+                                            <option value="">Choose...</option>
+                                            <option value="pick-colors" data-correct="true">Come pick your colors!</option>
+                                            <option value="buy-now">Buy one now!</option>
+                                            <option value="check-out">Check them out!</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="final-message">
+                                    <strong>Emma's Pitch:</strong>
+                                    <div class="message-preview" id="emma-preview">Fill in the blanks above to see Emma's pitch!</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="practice-btn" id="practice-pitch" disabled>🎤 Practice Your Own Pitch</button>
+                    </div>
+
+                    <!-- Pitch Practice -->
+                    <div class="interactive-card" id="pitch-practice" style="display: none;">
+                        <h3>🎤 Pitch Practice Simulator</h3>
+                        <p>Practice talking to different types of customers!</p>
+                        
+                        <div class="practice-scenario">
+                            <div class="customer-avatar">👨</div>
+                            <div class="customer-speech">
+                                <p>"Hi! What are you selling?"</p>
+                            </div>
+                            <div class="response-options">
+                                <h4>How do you respond?</h4>
+                                <button class="response-option" data-response="confident" data-correct="true">
+                                    "I make custom friendship bracelets with any name you want! They're perfect for best friends. Would you like to see the colors?"
+                                </button>
+                                <button class="response-option" data-response="shy">
+                                    "Um... just some bracelets... they're okay I guess..."
+                                </button>
+                                <button class="response-option" data-response="pushy">
+                                    "You HAVE to buy my bracelets! They're the best and you need one right now!"
+                                </button>
+                            </div>
+                            <div class="practice-feedback"></div>
+                        </div>
+                        
+                        <div class="confidence-tips">
+                            <h4>💪 Confidence Tips:</h4>
+                            <ul>
+                                <li>Smile and make eye contact</li>
+                                <li>Speak clearly and proudly</li>
+                                <li>Be excited about your product</li>
+                                <li>Let customers ask questions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button class="prev-btn" id="step4-prev">
+                        <i class="fas fa-arrow-left"></i>
+                        Previous
+                    </button>
+                    <button class="next-btn" id="step4-next" disabled>
+                        Next: Action Plan
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 5: Marketing Action Plan -->
+            <div class="lesson-step" data-step="5">
+                <div class="step-content">
+                    <div class="step-header">
+                        <h1 class="step-title">
+                            <i class="fas fa-clipboard-check step-icon"></i>
+                            Marketing Action Plan
+                        </h1>
+                        <p class="step-subtitle">Make your marketing plan for the big day!</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h2>Your Marketing Checklist</h2>
+                        
+                        <div class="planning-sections">
+                            <div class="planning-section">
+                                <h3>📅 Before the Fair</h3>
+                                <div class="checklist">
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="checklist-input">
+                                        <span class="checkmark"></span>
+                                        Tell family and friends about your business
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="checklist-input">
+                                        <span class="checkmark"></span>
+                                        Make eye-catching signs and banners
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="checklist-input">
+                                        <span class="checkmark"></span>
+                                        Practice your 30-second pitch
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="checklist-input">
+                                        <span class="checkmark"></span>
+                                        Prepare samples or demonstrations
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="checklist-input">
+                                        <span class="checkmark"></span>
+                                        Plan your booth layout and decorations
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="planning-section">
+                                <h3>🎪 Day of the Fair</h3>
+                                <div class="checklist">
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="checklist-input">
+                                        <span class="checkmark"></span>
+                                        Smile and greet every person who stops by
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="checklist-input">
+                                        <span class="checkmark"></span>
+                                        Let people touch and try your products
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="checklist-input">
+                                        <span class="checkmark"></span>
+                                        Tell your story confidently
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="checklist-input">
+                                        <span class="checkmark"></span>
+                                        Thank every customer, even if they don't buy
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="checklist-input">
+                                        <span class="checkmark"></span>
+                                        Ask happy customers to tell their friends
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Marketing Toolkit -->
+                    <div class="interactive-card">
+                        <h3>🧰 My Marketing Toolkit</h3>
+                        <p>Choose which marketing methods you'll use for your business:</p>
+                        
+                        <div class="toolkit-grid">
+                            <div class="toolkit-item">
+                                <label class="toolkit-label">
+                                    <input type="checkbox" class="toolkit-checkbox">
+                                    <div class="toolkit-card">
+                                        <div class="toolkit-icon">🎨</div>
+                                        <h4>Colorful Signs</h4>
+                                        <p>Eye-catching banners and posters</p>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="toolkit-item">
+                                <label class="toolkit-label">
+                                    <input type="checkbox" class="toolkit-checkbox">
+                                    <div class="toolkit-card">
+                                        <div class="toolkit-icon">🤝</div>
+                                        <h4>Product Samples</h4>
+                                        <p>Let customers try before they buy</p>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="toolkit-item">
+                                <label class="toolkit-label">
+                                    <input type="checkbox" class="toolkit-checkbox">
+                                    <div class="toolkit-card">
+                                        <div class="toolkit-icon">💬</div>
+                                        <h4>Word-of-Mouth</h4>
+                                        <p>Ask friends and family to spread the word</p>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="toolkit-item">
+                                <label class="toolkit-label">
+                                    <input type="checkbox" class="toolkit-checkbox">
+                                    <div class="toolkit-card">
+                                        <div class="toolkit-icon">📖</div>
+                                        <h4>My Story</h4>
+                                        <p>Share why your business is special</p>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="toolkit-item">
+                                <label class="toolkit-label">
+                                    <input type="checkbox" class="toolkit-checkbox">
+                                    <div class="toolkit-card">
+                                        <div class="toolkit-icon">🎭</div>
+                                        <h4>Live Demo</h4>
+                                        <p>Show how you make your product</p>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="toolkit-item">
+                                <label class="toolkit-label">
+                                    <input type="checkbox" class="toolkit-checkbox">
+                                    <div class="toolkit-card">
+                                        <div class="toolkit-icon">🏷️</div>
+                                        <h4>Business Cards</h4>
+                                        <p>Simple cards with your info</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="toolkit-summary">
+                            <p>You've selected <span id="toolkit-count">0</span> marketing methods for your toolkit!</p>
+                        </div>
+                    </div>
+
+                    <!-- Final Quiz -->
+                    <div class="final-quiz">
+                        <div class="quiz-question-card active" data-question="1">
+                            <div class="question-number">Question 1 of 3</div>
+                            <h3>What's the most important thing about marketing?</h3>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-answer="helping" data-correct="true">Helping people find products they'll love</button>
+                                <button class="quiz-option" data-answer="selling" data-correct="false">Selling as much as possible</button>
+                                <button class="quiz-option" data-answer="tricking" data-correct="false">Tricking people into buying things</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question-card" data-question="2">
+                            <div class="question-number">Question 2 of 3</div>
+                            <h3>Which customers usually spend the most at school fairs?</h3>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-answer="kids" data-correct="false">Other kids</button>
+                                <button class="quiz-option" data-answer="teachers" data-correct="false">Teachers</button>
+                                <button class="quiz-option" data-answer="grandparents" data-correct="true">Grandparents</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question-card" data-question="3">
+                            <div class="question-number">Question 3 of 3</div>
+                            <h3>What should you do if someone seems interested but doesn't buy?</h3>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-answer="pressure" data-correct="false">Keep pressuring them until they buy</button>
+                                <button class="quiz-option" data-answer="thank" data-correct="true">Thank them for looking and invite them to come back</button>
+                                <button class="quiz-option" data-answer="ignore" data-correct="false">Ignore them and move on to the next customer</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-results" id="quizResults">
+                            <div class="results-content">
+                                <div class="results-score">
+                                    <div class="score-circle">
+                                        <span id="scorePercentage">100%</span>
+                                    </div>
+                                    <h3>Congratulations!</h3>
+                                    <p id="resultsMessage">You're ready to market like a pro!</p>
+                                </div>
+                                <div class="results-actions">
+                                    <button class="restart-quiz-btn" id="restartQuiz">
+                                        <i class="fas fa-redo"></i>
+                                        Try Again
+                                    </button>
+                                    <a href="../learn.html" class="complete-lesson-btn">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        Back to Learn
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button class="prev-btn" id="step5-prev">
+                        <i class="fas fa-arrow-left"></i>
+                        Previous
+                    </button>
+                    <button class="quiz-next-btn" id="quizNext" disabled>
+                        Next Question
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="finish-quiz-btn" id="finishQuiz" style="display: none;" disabled>
+                        See Results
+                        <i class="fas fa-trophy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/utils/helpers.js"></script>
+    <script src="../js/modules/quiz-engine.js"></script>
+    <script src="../js/modules/lesson-player.js"></script>
+</body>
+</html>
