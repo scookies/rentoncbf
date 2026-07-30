@@ -120,7 +120,7 @@ sheet is empty, then appends. Timestamp is generated server-side in the script.
 ## UX / behavior
 
 - Client-side validation before send: HTML5 `required`, `type="email"`,
-  `type="tel"` pattern, age numeric range (e.g. 5–18). Inline error messaging.
+  `type="tel"` pattern, age numeric range (7–17). Inline error messaging.
 - Submit button enters a loading state (spinner, disabled) during the request.
 - Success: hide the form, show an inline confirmation panel with a friendly
   message and a link back to the fair page.
@@ -148,7 +148,7 @@ sheet is empty, then appends. Timestamp is generated server-side in the script.
 
 - Manual: fill and submit with a valid deployment; confirm a new row appears in
   the sheet with correct column mapping for 1, 2, and 3 children.
-- Validation: submit with missing required fields, bad email, out-of-range age;
+- Validation: submit with missing required fields, bad email, age outside 7–17;
   confirm inline errors and no send.
 - Honeypot: script-fill the hidden field; confirm silent drop.
 - Responsive/visual check against existing pages on mobile and desktop.
