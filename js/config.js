@@ -23,6 +23,7 @@ window.SiteConfig = {
                 text: 'Fairs', 
                 dropdown: [
                     { text: 'Upcoming Fair', href: '#', external: false, modal: 'upcoming-fair-modal' },
+                    { text: 'Register', href: 'register.html', external: false },
                     { text: 'Past Fairs', href: 'fairs.html', external: false }
                 ]
             },
