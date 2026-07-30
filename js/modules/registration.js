@@ -119,11 +119,13 @@
       try {
         await fetch(endpoint, {
           method: 'POST',
+          mode: 'no-cors',
           // URLSearchParams => application/x-www-form-urlencoded => no CORS preflight.
           body: new URLSearchParams(data)
         });
-        // Apps Script often blocks reading the response body cross-origin; a
-        // resolved fetch with no network error is treated as success.
+        // no-cors makes the response opaque (we can't read status/body), but the
+        // request is still sent; a resolved fetch with no network error is
+        // treated as success.
         return true;
       } catch (err) {
         console.error('[registration] submit failed:', err);

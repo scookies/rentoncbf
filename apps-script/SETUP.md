@@ -33,6 +33,8 @@ No server required — Google hosts the script for free.
    ```
 3. Commit and deploy the site.
 
+**Warning:** Until `registration.endpoint` is set, form submissions are NOT saved anywhere — the site runs in simulation mode and only logs the data to the browser console.
+
 ## 5. Test
 - Visit the site's `register.html`, submit a test entry, and confirm a new row
   appears in the Sheet.
