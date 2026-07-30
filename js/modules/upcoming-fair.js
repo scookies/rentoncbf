@@ -22,7 +22,7 @@ class UpcomingFairModule {
                 location: "Renton",
                 title: "Cascade Family Fun Day Market",
                 description: "Join us for our first fair of 2026! Young entrepreneurs will showcase their creative businesses, from handmade crafts to balloon arts. Experience the energy of tomorrow's leaders.",
-                registerUrl: "https://www.childrensbusinessfair.org/wa-renton"
+                registerUrl: "register.html"
             };
             return this.fairData;
         }
@@ -61,7 +61,7 @@ class UpcomingFairModule {
                             <div class="fair-description-modal">
                                 <p>${this.fairData.description}</p>
                                 <div class="modal-buttons">
-                                    <a href="${this.fairData.registerUrl}" class="button-primary" target="_blank" rel="noopener">Register Now</a>
+                                    <a href="${this.fairData.registerUrl}" class="button-primary">Register Now</a>
                                     <button class="button-secondary" data-modal-close>Close</button>
                                 </div>
                             </div>

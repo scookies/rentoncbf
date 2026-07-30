@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Renton Children's Business Fair</title>
+    <meta name="description" content="Register your young entrepreneur for the Renton Children's Business Fair. Complete the booth application to reserve a spot at the upcoming fair.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rentonchildrensbusinessfair.org/register.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/RentonCBFLogo.png">
+    <link rel="apple-touch-icon" href="images/RentonCBFLogo.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/register.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="header">
+        <!-- Header will be rendered by HeaderComponent -->
+    </header>
+
+    <main>
+        <section class="register-section section-card">
+            <div class="container register-container">
+                <div class="register-intro">
+                    <h1>Booth Application</h1>
+                    <p>Register your young entrepreneur for the Renton Children's Business Fair. Fields marked <span class="req-mark">*</span> are required.</p>
+                </div>
+
+                <!-- Success / error panels -->
+                <div class="form-panel form-panel-success" id="success-panel" hidden tabindex="-1">
+                    <i class="fas fa-circle-check"></i>
+                    <h2>Registration received!</h2>
+                    <p>Thank you for registering. We'll be in touch with details about the fair.</p>
+                    <a href="upcoming-fair.html" class="button-primary">Back to the Fair</a>
+                </div>
+                <div class="form-panel form-panel-error" id="error-panel" hidden tabindex="-1">
+                    <i class="fas fa-triangle-exclamation"></i>
+                    <h2>Something went wrong</h2>
+                    <p>We couldn't submit your registration. Please check your connection and try again.</p>
+                    <button type="button" class="button-primary" id="error-retry-btn">Try Again</button>
+                </div>
+
+                <form id="registration-form" data-custom-submit novalidate>
+                    <!-- Adult contact -->
+                    <fieldset class="form-section">
+                        <legend>Parent / Guardian Contact</legend>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="adultFirst">First name <span class="req-mark">*</span></label>
+                                <input type="text" id="adultFirst" name="adultFirst" required autocomplete="given-name">
+                            </div>
+                            <div class="form-field">
+                                <label for="adultLast">Last name <span class="req-mark">*</span></label>
+                                <input type="text" id="adultLast" name="adultLast" required autocomplete="family-name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="phone">Phone <span class="req-mark">*</span></label>
+                                <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(425) 555-0100">
+                            </div>
+                            <div class="form-field">
+                                <label for="email">Email <span class="req-mark">*</span></label>
+                                <input type="email" id="email" name="email" required autocomplete="email">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Children -->
+                    <fieldset class="form-section" id="children-section">
+                        <legend>Young Entrepreneur(s)</legend>
+
+                        <div class="child-group" data-child="1">
+                            <h3 class="child-title">Child 1 <span class="req-mark">*</span></h3>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="child1First">First name <span class="req-mark">*</span></label>
+                                    <input type="text" id="child1First" name="child1First" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="child1Last">Last name <span class="req-mark">*</span></label>
+                                    <input type="text" id="child1Last" name="child1Last" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="child1School">School <span class="req-mark">*</span></label>
+                                    <input type="text" id="child1School" name="child1School" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="child1Age">Age at fair <span class="req-mark">*</span></label>
+                                    <input type="number" id="child1Age" name="child1Age" required min="7" max="17">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="child-group is-hidden" data-child="2">
+                            <h3 class="child-title">Child 2
+                                <button type="button" class="child-remove" data-remove-child="2" aria-label="Remove child 2"><i class="fas fa-xmark"></i> Remove</button>
+                            </h3>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="child2First">First name</label>
+                                    <input type="text" id="child2First" name="child2First">
+                                </div>
+                                <div class="form-field">
+                                    <label for="child2Last">Last name</label>
+                                    <input type="text" id="child2Last" name="child2Last">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="child2School">School</label>
+                                    <input type="text" id="child2School" name="child2School">
+                                </div>
+                                <div class="form-field">
+                                    <label for="child2Age">Age at fair</label>
+                                    <input type="number" id="child2Age" name="child2Age" min="7" max="17">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="child-group is-hidden" data-child="3">
+                            <h3 class="child-title">Child 3
+                                <button type="button" class="child-remove" data-remove-child="3" aria-label="Remove child 3"><i class="fas fa-xmark"></i> Remove</button>
+                            </h3>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="child3First">First name</label>
+                                    <input type="text" id="child3First" name="child3First">
+                                </div>
+                                <div class="form-field">
+                                    <label for="child3Last">Last name</label>
+                                    <input type="text" id="child3Last" name="child3Last">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="child3School">School</label>
+                                    <input type="text" id="child3School" name="child3School">
+                                </div>
+                                <div class="form-field">
+                                    <label for="child3Age">Age at fair</label>
+                                    <input type="number" id="child3Age" name="child3Age" min="7" max="17">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="button-secondary" id="add-child-btn"><i class="fas fa-plus"></i> Add another child</button>
+                    </fieldset>
+
+                    <!-- Business -->
+                    <fieldset class="form-section">
+                        <legend>Business Info</legend>
+                        <div class="form-field">
+                            <label for="businessName">Business name <span class="req-mark">*</span></label>
+                            <input type="text" id="businessName" name="businessName" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="category">Business category <span class="req-mark">*</span></label>
+                            <select id="category" name="category" required>
+                                <option value="" disabled selected>Choose one…</option>
+                                <option>Arts and Crafts</option>
+                                <option>Food</option>
+                                <option>Toys</option>
+                                <option>Clothing</option>
+                                <option>Home</option>
+                                <option>Books</option>
+                                <option>Technology</option>
+                                <option>Services</option>
+                                <option>Entertainment</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="description">Product / service description <span class="req-mark">*</span></label>
+                            <textarea id="description" name="description" rows="4" required></textarea>
+                        </div>
+                        <div class="form-field">
+                            <span class="field-label">Will you need electricity? <span class="req-mark">*</span></span>
+                            <div class="radio-row">
+                                <label class="radio-option"><input type="radio" name="electricity" value="Yes" required> Yes</label>
+                                <label class="radio-option"><input type="radio" name="electricity" value="No"> No</label>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="heardAbout">How did you hear about us? <span class="req-mark">*</span></label>
+                            <select id="heardAbout" name="heardAbout" required>
+                                <option value="" disabled selected>Choose one…</option>
+                                <option>Social media</option>
+                                <option>Internet search</option>
+                                <option>Friends and family</option>
+                                <option>Blog</option>
+                                <option>Podcast</option>
+                                <option>Acton Academy</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <!-- Agreement -->
+                    <fieldset class="form-section">
+                        <legend>Agreement</legend>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="contractAgreed" value="Yes" required>
+                            <span>My child agrees to run their business at the fair and follow the fair guidelines. <span class="req-mark">*</span></span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="photoPermission" value="Yes" required>
+                            <span>I give permission for photos/video taken at the fair to be used to promote the event. <span class="req-mark">*</span></span>
+                        </label>
+                    </fieldset>
+
+                    <!-- Honeypot: hidden from users, bots fill it -->
+                    <div class="hp-field" aria-hidden="true">
+                        <label for="company_website">Company website</label>
+                        <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="button-primary" id="submit-btn">Submit Registration</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer">
+        <!-- Footer will be rendered by FooterComponent -->
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/modules/navigation.js"></script>
+    <script src="js/data/hero-stats-data.js"></script>
+    <script src="js/modules/hero-stats.js"></script>
+    <script src="js/modules/upcoming-fair.js"></script>
+    <script src="js/modules/carousel.js"></script>
+    <script src="js/components/header.js"></script>
+    <script src="js/components/footer.js"></script>
+    <script src="js/modules/registration.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

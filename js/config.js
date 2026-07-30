@@ -23,6 +23,7 @@ window.SiteConfig = {
                 text: 'Fairs', 
                 dropdown: [
                     { text: 'Upcoming Fair', href: '#', external: false, modal: 'upcoming-fair-modal' },
+                    { text: 'Register', href: 'register.html', external: false },
                     { text: 'Past Fairs', href: 'fairs.html', external: false }
                 ]
             },
@@ -58,6 +59,16 @@ window.SiteConfig = {
             duration: 4000,
             position: 'top-right'
         }
+    },
+
+    // Registration Form
+    registration: {
+        // Paste your deployed Google Apps Script Web App URL here (see apps-script/SETUP.md).
+        // While empty, the form runs in simulation mode (logs data, shows success, does not send).
+        endpoint: 'https://script.google.com/macros/s/AKfycbwr_WkF4jrlKvdzX0Usf75QUHA2EjTGIweLyaSOog3Z0zceLRaZdNX9LLeiSkmEo7hH/exec',
+        maxChildren: 3,
+        ageMin: 7,
+        ageMax: 17
     },
 
     // Contact Information

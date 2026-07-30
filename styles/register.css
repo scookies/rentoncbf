@@ -1,0 +1,234 @@
+/* Registration page styles — built on variables.css tokens */
+
+.register-section {
+  padding: var(--space-3xl) 0;
+  background: var(--color-cool-gray);
+}
+
+.register-container {
+  max-width: var(--container-md);
+}
+
+.register-intro {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.register-intro h1 {
+  color: var(--color-deep-navy);
+  font-weight: var(--font-weight-extrabold);
+}
+
+.register-intro p {
+  color: var(--color-deep-navy);
+  max-width: 46ch;
+  margin: var(--space-md) auto 0;
+}
+
+.req-mark {
+  color: var(--color-energy-orange);
+  font-weight: var(--font-weight-bold);
+}
+
+#registration-form {
+  background: var(--color-white);
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-xl);
+}
+
+.form-section {
+  border: none;
+  border-top: 1px solid var(--color-light-gray);
+  padding: var(--space-lg) 0;
+  margin: 0;
+}
+
+.form-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.form-section legend {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-trust-blue);
+  font-size: 1.15rem;
+  padding: 0;
+  margin-bottom: var(--space-md);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.form-field {
+  margin-bottom: var(--space-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label,
+.form-field .field-label {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-deep-navy);
+  margin-bottom: var(--space-xs);
+  font-size: 0.95rem;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  color: var(--color-deep-navy);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--color-trust-blue);
+  box-shadow: 0 0 0 3px var(--color-soft-blue);
+}
+
+.form-field.error input,
+.form-field.error select,
+.form-field.error textarea {
+  border-color: var(--color-energy-orange);
+  box-shadow: 0 0 0 3px rgb(214 126 55 / 0.15);
+}
+
+.field-error-msg {
+  color: var(--color-energy-orange);
+  font-size: 0.82rem;
+  margin-top: var(--space-xs);
+}
+
+.child-group {
+  background: var(--color-warm-gray);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.child-group.is-hidden {
+  display: none;
+}
+
+.child-title {
+  color: var(--color-growth-green);
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  margin: 0 0 var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.child-remove {
+  background: none;
+  border: none;
+  color: var(--color-energy-orange);
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: var(--font-primary);
+}
+
+.radio-row {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.radio-option,
+.checkbox-option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  color: var(--color-deep-navy);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.checkbox-option {
+  margin-bottom: var(--space-md);
+}
+
+.checkbox-option input,
+.radio-option input {
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+#add-child-btn {
+  margin-top: var(--space-xs);
+}
+
+.form-actions {
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+
+#submit-btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Honeypot — visually and programmatically removed from normal flow */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Result panels */
+.form-panel {
+  text-align: center;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-2xl) var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.form-panel i {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+}
+
+.form-panel-success i {
+  color: var(--color-growth-green);
+}
+
+.form-panel-error i {
+  color: var(--color-energy-orange);
+}
+
+.form-panel h2 {
+  color: var(--color-deep-navy);
+  margin-bottom: var(--space-sm);
+}
+
+.form-panel p {
+  color: var(--color-deep-navy);
+  margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  #registration-form {
+    padding: var(--space-md);
+  }
+}
