@@ -60,6 +60,16 @@ window.SiteConfig = {
         }
     },
 
+    // Registration Form
+    registration: {
+        // Paste your deployed Google Apps Script Web App URL here (see apps-script/SETUP.md).
+        // While empty, the form runs in simulation mode (logs data, shows success, does not send).
+        endpoint: '',
+        maxChildren: 3,
+        ageMin: 7,
+        ageMax: 17
+    },
+
     // Contact Information
     contact: {
         email: '',
