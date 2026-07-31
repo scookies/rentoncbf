@@ -1,6 +1,7 @@
 class FairCarouselModule {
     constructor() {
         this.fairFolders = new Map([
+            ['Renton River Days\' Market', 'rentonRiverDays'],
             ['Cascade Family Fun Day', 'cascadeFamilyFunDay'],
             ['Mid Winter Fair', 'midWinterFair'],
             ['Summer Fair', 'summerFair'],
@@ -34,6 +35,12 @@ class FairCarouselModule {
     async getExistingImages(folderName) {
         // Final fallback - hardcoded image map
                                                                         const imageMap = {
+            'rentonRiverDays': [
+                'images/rentonRiverDays/DSC_8228.jpeg',
+                'images/rentonRiverDays/DSC_8241.jpeg',
+                'images/rentonRiverDays/IMG_1035.jpg',
+                'images/rentonRiverDays/IMG_1058.jpg'
+            ],
             'cascadeFamilyFunDay': [
                 'images/cascadeFamilyFunDay/CBF_7734.jpeg',
                 'images/cascadeFamilyFunDay/CBF_7762.jpeg',

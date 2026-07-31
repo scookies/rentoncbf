@@ -1,5 +1,11 @@
 window.FairImagesData = {
   "fairImages": {
+    "rentonRiverDays": [
+      "images/rentonRiverDays/DSC_8228.jpeg",
+      "images/rentonRiverDays/DSC_8241.jpeg",
+      "images/rentonRiverDays/IMG_1035.jpg",
+      "images/rentonRiverDays/IMG_1058.jpg"
+    ],
     "cascadeFamilyFunDay": [
       "images/cascadeFamilyFunDay/CBF_7734.jpeg",
       "images/cascadeFamilyFunDay/CBF_7762.jpeg",
