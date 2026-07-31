@@ -28,7 +28,6 @@
         <section class="register-section section-card">
             <div class="container register-container">
                 <div class="register-intro">
-                    <h1>Booth Application</h1>
                     <p>Register your young entrepreneur for the Renton Children's Business Fair. Fields marked <span class="req-mark">*</span> are required.</p>
                 </div>
 
@@ -217,6 +216,91 @@
                         </label>
                     </fieldset>
 
+                    <!-- Vendor FAQ -->
+                    <section class="form-section faq" aria-labelledby="faq-heading">
+                        <h2 id="faq-heading" class="faq-heading">Vendor FAQ</h2>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-1" id="faq-tab-1">
+                                        <span class="accordion-question">How do I apply?</span>
+                                        <i class="fas fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                                    </button>
+                                </h3>
+                                <div class="accordion-panel" id="faq-panel-1" role="region" aria-labelledby="faq-tab-1">
+                                    <div class="accordion-panel-inner">
+                                        <p>Applications are submitted online, right here on this page. Please submit one application per business.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-2" id="faq-tab-2">
+                                        <span class="accordion-question">Can I apply as part of a group?</span>
+                                        <i class="fas fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                                    </button>
+                                </h3>
+                                <div class="accordion-panel" id="faq-panel-2" role="region" aria-labelledby="faq-tab-2">
+                                    <div class="accordion-panel-inner">
+                                        <p>Yes. Children working as a group should submit one application that includes each child's information. There is a limit of 3 participants per business.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-3" id="faq-tab-3">
+                                        <span class="accordion-question">What is the cost?</span>
+                                        <i class="fas fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                                    </button>
+                                </h3>
+                                <div class="accordion-panel" id="faq-panel-3" role="region" aria-labelledby="faq-tab-3">
+                                    <div class="accordion-panel-inner">
+                                        <p>Attending the fair is free. To sell as a vendor, the cost is $15 (nonrefundable), collected before the fair to reserve your 6' vendor space once your application is accepted. If the space isn't reserved by the deadline, it will be offered to another applicant.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-4" id="faq-tab-4">
+                                        <span class="accordion-question">How will the fair be set up?</span>
+                                        <i class="fas fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                                    </button>
+                                </h3>
+                                <div class="accordion-panel" id="faq-panel-4" role="region" aria-labelledby="faq-tab-4">
+                                    <div class="accordion-panel-inner">
+                                        <p>The fair is an outdoor event. Each business brings their own table, display, chairs, and any decorations. We have limited space for businesses that need electricity &mdash; please let us know on your application if yours does.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-5" id="faq-tab-5">
+                                        <span class="accordion-question">Can I sell food?</span>
+                                        <i class="fas fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                                    </button>
+                                </h3>
+                                <div class="accordion-panel" id="faq-panel-5" role="region" aria-labelledby="faq-tab-5">
+                                    <div class="accordion-panel-inner">
+                                        <p>Yes, as long as you have a food handling permit required by the State of Washington.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-6" id="faq-tab-6">
+                                        <span class="accordion-question">What are the rules?</span>
+                                        <i class="fas fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                                    </button>
+                                </h3>
+                                <div class="accordion-panel" id="faq-panel-6" role="region" aria-labelledby="faq-tab-6">
+                                    <div class="accordion-panel-inner">
+                                        <p>This event is designed to give children the experience of selling a product or service. Parents of younger children may sit in the booth, but the children should be responsible for setup, customer interaction, and sales. Parents may help their child fill out the application, but we expect the children to do as much as possible themselves.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     <!-- Honeypot: hidden from users, bots fill it -->
                     <div class="hp-field" aria-hidden="true">
                         <label for="company_website">Company website</label>
@@ -245,6 +329,7 @@
     <script src="js/components/header.js"></script>
     <script src="js/components/footer.js"></script>
     <script src="js/modules/registration.js"></script>
+    <script src="js/modules/faq-accordion.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
