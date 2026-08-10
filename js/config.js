@@ -76,7 +76,7 @@ window.SiteConfig = {
         // Paste your deployed Google Apps Script Web App URL here
         // (see apps-script/newsletter/SETUP.md). While empty, the form runs in
         // simulation mode (logs data, shows success, does not send).
-        endpoint: ''
+        endpoint: 'https://script.google.com/macros/s/AKfycbyaJaQ-_2DS6qwIXOITasKibav3Hy53HTs6shRzuIyRPOvoPFDANKTMnZWJdMEj01OpfA/exec'
     },
 
     // Contact Information
