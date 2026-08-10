@@ -52,6 +52,30 @@ class NewsletterModule {
         `;
     }
 
+    /**
+     * The modal shell. Reuses the site's existing .modal / .modal-content /
+     * .modal-close styles and the data-modal-close convention established by
+     * js/modules/upcoming-fair.js.
+     * @returns {string} Modal HTML
+     */
+    static renderModal() {
+        return `
+            <div id="newsletter-modal" class="modal" role="dialog" aria-modal="true"
+                 aria-labelledby="newsletter-modal-title">
+                <div class="modal-content newsletter-modal-content">
+                    <button class="modal-close" data-modal-close aria-label="Close signup">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="newsletter-modal-body">
+                        <h2 id="newsletter-modal-title">Stay in the loop</h2>
+                        <p>Be first to know when the next fair opens.</p>
+                        ${NewsletterModule.renderForm('modal')}
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
     // --- Validation -------------------------------------------------------
     // Scoped to the passed form so the two instances never touch each other.
 
@@ -199,6 +223,46 @@ class NewsletterModule {
         box.textContent = "Couldn't sign you up — please try again.";
     }
 
+    // --- Modal ------------------------------------------------------------
+
+    injectModal() {
+        if (document.getElementById('newsletter-modal')) return;
+        document.body.insertAdjacentHTML('beforeend', NewsletterModule.renderModal());
+        this.modalElement = document.getElementById('newsletter-modal');
+    }
+
+    /**
+     * @param {Element|null} trigger Element that opened the modal, so focus can
+     *   be restored on close. null when opened by the URL fragment.
+     */
+    openModal(trigger) {
+        if (!this.modalElement) return;
+        this.lastTrigger = trigger || null;
+        this.modalElement.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        const firstInput = this.modalElement.querySelector('input[name="name"]');
+        if (firstInput) firstInput.focus();
+    }
+
+    closeModal() {
+        if (!this.modalElement) return;
+        this.modalElement.classList.remove('active');
+        document.body.style.overflow = '';
+
+        // Drop the fragment, or a refresh reopens the modal forever.
+        // replaceState adds no history entry, so Back is unaffected.
+        if (window.location.hash === '#notify') {
+            window.history.replaceState(
+                null, '', window.location.pathname + window.location.search
+            );
+        }
+
+        if (this.lastTrigger && typeof this.lastTrigger.focus === 'function') {
+            this.lastTrigger.focus();
+        }
+        this.lastTrigger = null;
+    }
+
     // --- Events -----------------------------------------------------------
 
     setupEvents() {
@@ -210,10 +274,53 @@ class NewsletterModule {
             e.preventDefault();
             this.handleSubmit(form);
         });
+
+        document.addEventListener('click', (e) => {
+            // Open triggers. data-modal reuses the convention from
+            // js/modules/upcoming-fair.js:133.
+            const opener = e.target.closest('a[href="#notify"], [data-modal="newsletter-modal"]');
+            if (opener) {
+                e.preventDefault();
+                this.openModal(opener);
+                return;
+            }
+
+            if (!this.modalElement) return;
+
+            // Close button — delegated so the success state's Close button,
+            // which replaces the form, needs no rewiring.
+            if (e.target.closest('#newsletter-modal [data-modal-close]')) {
+                this.closeModal();
+                return;
+            }
+
+            // Backdrop click.
+            if (e.target === this.modalElement) {
+                this.closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' &&
+                this.modalElement &&
+                this.modalElement.classList.contains('active')) {
+                this.closeModal();
+            }
+        });
+
+        // Fires when the link is followed while already on the page.
+        window.addEventListener('hashchange', () => {
+            if (window.location.hash === '#notify') this.openModal(null);
+        });
     }
 
     async init() {
+        this.injectModal();
         this.setupEvents();
+
+        // Opened directly via the shared link.
+        if (window.location.hash === '#notify') this.openModal(null);
+
         console.log('✅ Newsletter module initialized');
     }
 }

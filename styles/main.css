@@ -2964,3 +2964,72 @@ section {
   opacity: 0.75;
   line-height: 1.5;
 }
+
+/* Newsletter modal — .modal-content supplies the scale-in transition
+   (main.css:1915); these rules narrow and pad it for a two-field form. */
+.newsletter-modal-content {
+  max-width: 460px;
+  overflow: visible;
+}
+
+.newsletter-modal-body {
+  padding: var(--space-2xl);
+}
+
+.newsletter-modal-body h2 {
+  margin-bottom: var(--space-sm);
+  color: var(--color-deep-navy);
+}
+
+.newsletter-modal-body > p {
+  margin-bottom: var(--space-lg);
+  color: var(--color-deep-navy);
+  opacity: 0.8;
+}
+
+/* Modal sits on white, so error text uses the standard orange token,
+   matching styles/register.css:110. */
+.newsletter-form--modal .field-error-msg,
+.newsletter-form--modal .newsletter-error {
+  color: var(--color-energy-orange);
+}
+
+.newsletter-form--modal .newsletter-field label {
+  color: var(--color-deep-navy);
+}
+
+.newsletter-form--modal .newsletter-submit {
+  width: 100%;
+  margin-top: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+}
+
+.newsletter-form--modal .newsletter-consent {
+  color: var(--color-deep-navy);
+  text-align: center;
+}
+
+.newsletter-form--modal .newsletter-field input {
+  border-color: var(--color-light-gray);
+}
+
+.newsletter-modal-content .newsletter-done {
+  padding: var(--space-2xl);
+  text-align: center;
+  color: var(--color-deep-navy);
+}
+
+.newsletter-modal-content .newsletter-done p {
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+.newsletter-modal-content .newsletter-done i {
+  color: var(--color-growth-green);
+}
+
+@media (max-width: 480px) {
+  .newsletter-modal-body {
+    padding: var(--space-xl);
+  }
+}
