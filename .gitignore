@@ -40,3 +40,7 @@ yarn-error.log*
 .htaccess
 .htpasswd
 web.config
+
+# Agent scratch space (ledgers, task briefs, review packages)
+.superpowers/
+.worktrees/
