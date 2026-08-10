@@ -86,6 +86,12 @@ class NavigationModule {
      * @param {string} targetId - Target element ID
      */
     smoothScrollTo(targetId) {
+        // Guards against a stale setTimeout call: closeModal() strips the
+        // #notify hash via replaceState, so a callback that re-reads
+        // window.location.hash after that can receive '' or '#', and
+        // document.querySelector('') throws a SyntaxError.
+        if (!targetId || targetId === '#') return;
+
         const targetSection = document.querySelector(targetId);
         
         if (targetSection) {
