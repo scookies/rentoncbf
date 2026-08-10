@@ -71,6 +71,14 @@ window.SiteConfig = {
         ageMax: 17
     },
 
+    // Newsletter Signup
+    newsletter: {
+        // Paste your deployed Google Apps Script Web App URL here
+        // (see apps-script/newsletter/SETUP.md). While empty, the form runs in
+        // simulation mode (logs data, shows success, does not send).
+        endpoint: ''
+    },
+
     // Contact Information
     contact: {
         email: '',
