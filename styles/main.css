@@ -2836,3 +2836,223 @@ section {
     padding: var(--space-2xl);
   }
 }
+
+/* ===== Newsletter Signup ===== */
+
+.footer-newsletter p {
+  margin-bottom: var(--space-md);
+}
+
+.newsletter-form {
+  margin: 0;
+}
+
+/* Honeypot: must be unreachable for humans but not display:none, which some
+   bots detect. Kept out of the tab order via tabindex="-1" in the markup. */
+.newsletter-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.newsletter-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.newsletter-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.newsletter-field label {
+  font-size: 0.82rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.newsletter-field input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  color: var(--color-deep-navy);
+  background: var(--color-white);
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--radius-md);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.newsletter-field input:focus {
+  outline: none;
+  border-color: var(--color-trust-blue);
+  box-shadow: 0 0 0 3px var(--color-soft-blue);
+}
+
+.newsletter-field.error input {
+  border-color: var(--color-energy-orange);
+  box-shadow: 0 0 0 3px rgb(214 126 55 / 0.15);
+}
+
+.newsletter-submit {
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  background: var(--color-energy-orange);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.newsletter-submit:hover:not(:disabled) {
+  background: var(--color-sunshine-yellow);
+  color: var(--color-deep-navy);
+}
+
+.newsletter-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.newsletter-consent {
+  margin-top: var(--space-sm);
+  font-size: 0.75rem;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+.newsletter-done p {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: 0;
+  font-weight: var(--font-weight-medium);
+}
+
+.newsletter-done i {
+  color: var(--color-sunshine-yellow);
+}
+
+.newsletter-error {
+  margin-top: var(--space-sm);
+  font-size: 0.82rem;
+}
+
+/* Footer variant sits on --color-deep-navy, so error text uses the yellow
+   token for contrast rather than the orange used on light backgrounds. */
+.newsletter-form--footer .field-error-msg,
+.newsletter-form--footer .newsletter-error {
+  color: var(--color-sunshine-yellow);
+  font-size: 0.78rem;
+}
+
+.newsletter-form--footer .newsletter-submit {
+  align-self: flex-start;
+  margin-top: var(--space-xs);
+}
+
+/* Override .footer-section p (specificity 0,1,1) which silently defeats the
+   base .newsletter-consent rule (0,1,0). The consent line renders only in the
+   footer, so scoping to .footer-newsletter ensures it applies. */
+.footer-newsletter .newsletter-consent {
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+/* Newsletter modal — deliberately does NOT use .modal-content, mirroring
+   .upcoming-fair-modal-content above. main.css defines two unscoped
+   .modal-content rules (one written for the video modal, ~line 2585, which
+   forces aspect-ratio: 16/9 and width: 100%) that would squash this form
+   into a letterboxed strip. This rule supplies everything a modal box
+   needs standalone instead of inheriting from either .modal-content rule. */
+.newsletter-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  transform: scale(0.8);
+  transition: all var(--transition-normal);
+}
+
+.modal.active .newsletter-modal-content {
+  transform: scale(1);
+}
+
+/* Scoped override: main.css has two unscoped .modal-close rules (1837,
+   2593). The video modal's (2593) wins by source order and positions the
+   button 50px above the box with no background — invisible once clipped by
+   this box's overflow-y: auto. Specificity (0,2,0) beats (0,1,0). */
+.newsletter-modal-content .modal-close {
+  top: var(--space-md);
+  right: var(--space-md);
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 1.2rem;
+  z-index: 3;
+}
+
+.newsletter-modal-body {
+  padding: var(--space-2xl);
+}
+
+.newsletter-modal-body h2 {
+  margin-bottom: var(--space-sm);
+  color: var(--color-deep-navy);
+}
+
+.newsletter-modal-body > p {
+  margin-bottom: var(--space-lg);
+  color: var(--color-deep-navy);
+  opacity: 0.8;
+}
+
+/* Modal sits on white, so error text uses the standard orange token,
+   matching styles/register.css:110. */
+.newsletter-form--modal .field-error-msg,
+.newsletter-form--modal .newsletter-error {
+  color: var(--color-energy-orange);
+}
+
+.newsletter-form--modal .newsletter-field label {
+  color: var(--color-deep-navy);
+}
+
+.newsletter-form--modal .newsletter-submit {
+  width: 100%;
+  margin-top: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+}
+
+.newsletter-form--modal .newsletter-consent {
+  color: var(--color-deep-navy);
+  text-align: center;
+}
+
+.newsletter-modal-content .newsletter-done {
+  padding: var(--space-2xl);
+  text-align: center;
+  color: var(--color-deep-navy);
+}
+
+.newsletter-modal-content .newsletter-done p {
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+.newsletter-modal-content .newsletter-done i {
+  color: var(--color-growth-green);
+}
+
+@media (max-width: 480px) {
+  .newsletter-modal-body {
+    padding: var(--space-xl);
+  }
+}

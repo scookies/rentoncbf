@@ -132,33 +132,51 @@ class RentonCBFApp {
         await this.initializeHeader();
         await this.initializeFooter();
         
+        // Referenced via `window.` (not bare identifiers) because not every
+        // page loads every module script — e.g. learn.html has no
+        // hero-stats.js / upcoming-fair.js — and a bare identifier reference
+        // to an unloaded class throws a ReferenceError while this array
+        // literal is being built, which happens OUTSIDE the loop's per-module
+        // try/catch below and would abort initialization of every module.
         const moduleInitializers = [
-            { name: 'navigation', class: NavigationModule, required: true },
-            { name: 'heroStats', class: HeroStatsModule, required: false },
-            { name: 'upcomingFair', class: UpcomingFairModule, required: false },
-            { name: 'carousel', class: CarouselModule, required: false },
+            { name: 'navigation', class: window.NavigationModule, required: true },
+            { name: 'heroStats', class: window.HeroStatsModule, required: false },
+            { name: 'upcomingFair', class: window.UpcomingFairModule, required: false },
+            { name: 'carousel', class: window.CarouselModule, required: false },
             { name: 'animations', initializer: () => this.initializeAnimations(), required: false },
             { name: 'forms', initializer: () => this.initializeForms(), required: false },
-            { name: 'modal', initializer: () => this.initializeModals(), required: false }
+            { name: 'modal', initializer: () => this.initializeModals(), required: false },
+            // Last on purpose: initializeForms() and initializeModals() both
+            // scan the DOM at their turn, and the newsletter modal must be
+            // injected after initializeModals() has finished.
+            { name: 'newsletter', class: window.NewsletterModule, required: false }
         ];
 
         for (const moduleConfig of moduleInitializers) {
+            if (!moduleConfig.class && !moduleConfig.initializer) {
+                console.warn(`⚠️  ${moduleConfig.name} module script not loaded on this page — skipping`);
+                if (moduleConfig.required) {
+                    throw new Error(`Required module ${moduleConfig.name} failed to initialize`);
+                }
+                continue;
+            }
+
             try {
                 let module;
-                
+
                 if (moduleConfig.class) {
                     module = new moduleConfig.class();
                     await module.init();
                 } else if (moduleConfig.initializer) {
                     module = moduleConfig.initializer();
                 }
-                
+
                 this.modules.set(moduleConfig.name, module);
                 console.log(`✅ ${moduleConfig.name} module initialized`);
-                
+
             } catch (error) {
                 console.warn(`⚠️  ${moduleConfig.name} module failed to initialize:`, error);
-                
+
                 if (moduleConfig.required) {
                     throw new Error(`Required module ${moduleConfig.name} failed to initialize`);
                 }

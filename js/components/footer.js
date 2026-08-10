@@ -19,6 +19,7 @@ class FooterComponent {
                     ${this.renderCompanySection()}
                     ${this.renderDiscoverSection()}
                     ${this.renderConnectSection()}
+                    ${this.renderNewsletterSection()}
                 </div>
                 ${this.renderFooterBottom()}
             </div>
@@ -74,6 +75,25 @@ class FooterComponent {
                         <i class="fas fa-globe"></i>
                     </a>
                 </div>
+            </div>
+        `;
+    }
+
+    /**
+     * Render newsletter signup section
+     * Markup comes from NewsletterModule so the footer and modal share one
+     * form definition. Guarded because footer.js must not hard-depend on it.
+     * @returns {string} - Newsletter section HTML
+     */
+    renderNewsletterSection() {
+        const form = window.NewsletterModule
+            ? window.NewsletterModule.renderForm('footer')
+            : '';
+        return `
+            <div class="footer-section footer-newsletter">
+                <h4>Stay in the Loop</h4>
+                <p>Get notified when the next fair opens.</p>
+                ${form}
             </div>
         `;
     }
