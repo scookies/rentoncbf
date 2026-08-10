@@ -2956,3 +2956,11 @@ section {
   align-self: flex-start;
   margin-top: var(--space-xs);
 }
+
+/* Override .footer-section p (specificity 0,1,1) which silently defeats the
+   base .newsletter-consent rule (0,1,0). The consent line renders only in the
+   footer, so scoping to .footer-newsletter ensures it applies. */
+.footer-newsletter .newsletter-consent {
+  opacity: 0.75;
+  line-height: 1.5;
+}
