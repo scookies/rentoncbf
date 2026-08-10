@@ -139,7 +139,11 @@ class RentonCBFApp {
             { name: 'carousel', class: CarouselModule, required: false },
             { name: 'animations', initializer: () => this.initializeAnimations(), required: false },
             { name: 'forms', initializer: () => this.initializeForms(), required: false },
-            { name: 'modal', initializer: () => this.initializeModals(), required: false }
+            { name: 'modal', initializer: () => this.initializeModals(), required: false },
+            // Last on purpose: initializeForms() and initializeModals() both
+            // scan the DOM at their turn, and the newsletter modal must be
+            // injected after initializeModals() has finished.
+            { name: 'newsletter', class: NewsletterModule, required: false }
         ];
 
         for (const moduleConfig of moduleInitializers) {
