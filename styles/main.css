@@ -2836,3 +2836,123 @@ section {
     padding: var(--space-2xl);
   }
 }
+
+/* ===== Newsletter Signup ===== */
+
+.footer-newsletter p {
+  margin-bottom: var(--space-md);
+}
+
+.newsletter-form {
+  margin: 0;
+}
+
+/* Honeypot: must be unreachable for humans but not display:none, which some
+   bots detect. Kept out of the tab order via tabindex="-1" in the markup. */
+.newsletter-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.newsletter-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.newsletter-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.newsletter-field label {
+  font-size: 0.82rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.newsletter-field input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  color: var(--color-deep-navy);
+  background: var(--color-white);
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--radius-md);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.newsletter-field input:focus {
+  outline: none;
+  border-color: var(--color-trust-blue);
+  box-shadow: 0 0 0 3px var(--color-soft-blue);
+}
+
+.newsletter-field.error input {
+  border-color: var(--color-energy-orange);
+  box-shadow: 0 0 0 3px rgb(214 126 55 / 0.15);
+}
+
+.newsletter-submit {
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  background: var(--color-energy-orange);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.newsletter-submit:hover:not(:disabled) {
+  background: var(--color-sunshine-yellow);
+  color: var(--color-deep-navy);
+}
+
+.newsletter-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.newsletter-consent {
+  margin-top: var(--space-sm);
+  font-size: 0.75rem;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+.newsletter-done p {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: 0;
+  font-weight: var(--font-weight-medium);
+}
+
+.newsletter-done i {
+  color: var(--color-sunshine-yellow);
+}
+
+.newsletter-error {
+  margin-top: var(--space-sm);
+  font-size: 0.82rem;
+}
+
+/* Footer variant sits on --color-deep-navy, so error text uses the yellow
+   token for contrast rather than the orange used on light backgrounds. */
+.newsletter-form--footer .field-error-msg,
+.newsletter-form--footer .newsletter-error {
+  color: var(--color-sunshine-yellow);
+  font-size: 0.78rem;
+}
+
+.newsletter-form--footer .newsletter-submit {
+  align-self: flex-start;
+  margin-top: var(--space-xs);
+}
