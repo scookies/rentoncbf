@@ -91,8 +91,13 @@ Unsubscribe anytime."*
 ### One form, two mount points
 
 `renderForm(variant)` produces the markup for both the footer instance and the
-modal instance. The two differ only in wrapper class and layout (footer is a
-horizontal row; modal is stacked).
+modal instance. The two differ only in wrapper class and a few layout rules.
+
+Both stack vertically. `.footer-content` is
+`grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))`
+(`styles/main.css:589-594`), so the footer form lives inside a ~250px column —
+too narrow to lay name, email, and button out in a row. The footer variant gets
+a left-aligned button; the modal variant gets a full-width one.
 
 Because the same form exists twice in one document, input `id`s are suffixed per
 variant — `newsletter-name--footer`, `newsletter-name--modal`, and likewise for
