@@ -10,6 +10,21 @@
 var HEADERS = ['Timestamp', 'Name', 'Email', 'Source'];
 var EMAIL_COL = 3; // 1-indexed position of Email within HEADERS.
 var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+var MAX_FIELD_LENGTH = 200;
+var FORMULA_PREFIX_RE = /^[=+\-@]/;
+
+// Truncates to MAX_FIELD_LENGTH and, if the value could be interpreted as a
+// spreadsheet formula (e.g. name = '=HYPERLINK("http://evil","click")'),
+// prefixes a single quote so Sheets stores it as literal text instead of a
+// live formula. A malicious formula would otherwise survive CSV export
+// into Excel too. Not applied to email, which EMAIL_RE already constrains.
+function sanitizeForSheet(value) {
+  var truncated = String(value).slice(0, MAX_FIELD_LENGTH);
+  if (FORMULA_PREFIX_RE.test(truncated)) {
+    return "'" + truncated;
+  }
+  return truncated;
+}
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
@@ -39,7 +54,7 @@ function doPost(e) {
       return json({ result: 'success', duplicate: true });
     }
 
-    sheet.appendRow([new Date(), name, email, source]);
+    sheet.appendRow([new Date(), sanitizeForSheet(name), email, sanitizeForSheet(source)]);
     return json({ result: 'success', duplicate: false });
   } catch (err) {
     return json({ result: 'error', message: String(err) });
