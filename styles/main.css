@@ -2969,7 +2969,8 @@ section {
    (main.css:1915); these rules narrow and pad it for a two-field form. */
 .newsletter-modal-content {
   max-width: 460px;
-  overflow: visible;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .newsletter-modal-body {
@@ -3007,10 +3008,6 @@ section {
 .newsletter-form--modal .newsletter-consent {
   color: var(--color-deep-navy);
   text-align: center;
-}
-
-.newsletter-form--modal .newsletter-field input {
-  border-color: var(--color-light-gray);
 }
 
 .newsletter-modal-content .newsletter-done {

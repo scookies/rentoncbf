@@ -14,6 +14,7 @@ class NewsletterModule {
         this.config = (window.SiteConfig && window.SiteConfig.newsletter) || {};
         this.modalElement = null;
         this.lastTrigger = null;
+        this.isOpen = false;
     }
 
     /**
@@ -238,14 +239,18 @@ class NewsletterModule {
     openModal(trigger) {
         if (!this.modalElement) return;
         this.lastTrigger = trigger || null;
+        this.isOpen = true;
         this.modalElement.classList.add('active');
         document.body.style.overflow = 'hidden';
-        const firstInput = this.modalElement.querySelector('input[name="name"]');
-        if (firstInput) firstInput.focus();
+        requestAnimationFrame(() => {
+            const firstInput = this.modalElement.querySelector('input[name="name"]');
+            if (firstInput) firstInput.focus();
+        });
     }
 
     closeModal() {
-        if (!this.modalElement) return;
+        if (!this.modalElement || !this.isOpen) return;
+        this.isOpen = false;
         this.modalElement.classList.remove('active');
         document.body.style.overflow = '';
 
@@ -301,11 +306,7 @@ class NewsletterModule {
         });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' &&
-                this.modalElement &&
-                this.modalElement.classList.contains('active')) {
-                this.closeModal();
-            }
+            if (e.key === 'Escape' && this.isOpen) this.closeModal();
         });
 
         // Fires when the link is followed while already on the page.
