@@ -63,7 +63,7 @@ class NewsletterModule {
         return `
             <div id="newsletter-modal" class="modal" role="dialog" aria-modal="true"
                  aria-labelledby="newsletter-modal-title">
-                <div class="modal-content newsletter-modal-content">
+                <div class="newsletter-modal-content">
                     <button class="modal-close" data-modal-close aria-label="Close signup">
                         <i class="fas fa-times"></i>
                     </button>
@@ -117,6 +117,19 @@ class NewsletterModule {
                 if (!firstInvalid) firstInvalid = el;
             }
         });
+
+        // The HTML5 email grammar permits a domain with no dot (e.g.
+        // "mom@gmail"), but the server's EMAIL_RE in
+        // apps-script/newsletter/Code.gs rejects it — and since send() uses
+        // mode: 'no-cors', we can't read that rejection, so showSuccess()
+        // would run anyway and the signup would be silently lost. Keep this
+        // regex character-for-character identical to EMAIL_RE there.
+        const NEWSLETTER_EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        const emailEl = form.querySelector('input[name="email"]');
+        if (emailEl && emailEl.checkValidity() && !NEWSLETTER_EMAIL_RE.test(emailEl.value.trim())) {
+            this.markError(emailEl, 'Please enter a valid email address.');
+            if (!firstInvalid) firstInvalid = emailEl;
+        }
 
         if (firstInvalid) {
             firstInvalid.focus();
@@ -227,7 +240,11 @@ class NewsletterModule {
     // --- Modal ------------------------------------------------------------
 
     injectModal() {
-        if (document.getElementById('newsletter-modal')) return;
+        const existing = document.getElementById('newsletter-modal');
+        if (existing) {
+            this.modalElement = existing;
+            return;
+        }
         document.body.insertAdjacentHTML('beforeend', NewsletterModule.renderModal());
         this.modalElement = document.getElementById('newsletter-modal');
     }
@@ -243,6 +260,7 @@ class NewsletterModule {
         this.modalElement.classList.add('active');
         document.body.style.overflow = 'hidden';
         requestAnimationFrame(() => {
+            if (!this.isOpen) return;
             const firstInput = this.modalElement.querySelector('input[name="name"]');
             if (firstInput) firstInput.focus();
         });

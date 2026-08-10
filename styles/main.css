@@ -2965,12 +2965,38 @@ section {
   line-height: 1.5;
 }
 
-/* Newsletter modal — .modal-content supplies the scale-in transition
-   (main.css:1915); these rules narrow and pad it for a two-field form. */
+/* Newsletter modal — deliberately does NOT use .modal-content, mirroring
+   .upcoming-fair-modal-content above. main.css defines two unscoped
+   .modal-content rules (one written for the video modal, ~line 2585, which
+   forces aspect-ratio: 16/9 and width: 100%) that would squash this form
+   into a letterboxed strip. This rule supplies everything a modal box
+   needs standalone instead of inheriting from either .modal-content rule. */
 .newsletter-modal-content {
+  position: relative;
+  width: 90%;
   max-width: 460px;
   max-height: 90vh;
   overflow-y: auto;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  transform: scale(0.8);
+  transition: all var(--transition-normal);
+}
+
+.modal.active .newsletter-modal-content {
+  transform: scale(1);
+}
+
+/* Scoped override: main.css has two unscoped .modal-close rules (1837,
+   2593). The video modal's (2593) wins by source order and positions the
+   button 50px above the box with no background — invisible once clipped by
+   this box's overflow-y: auto. Specificity (0,2,0) beats (0,1,0). */
+.newsletter-modal-content .modal-close {
+  top: var(--space-md);
+  right: var(--space-md);
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 1.2rem;
+  z-index: 3;
 }
 
 .newsletter-modal-body {
