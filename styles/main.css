@@ -2971,6 +2971,15 @@ section {
    forces aspect-ratio: 16/9 and width: 100%) that would squash this form
    into a letterboxed strip. This rule supplies everything a modal box
    needs standalone instead of inheriting from either .modal-content rule. */
+
+/* .modal is z-index 1000 but .header is --z-fixed (1030), so the fixed header
+   paints over the modal's top edge. --z-modal (1050) is the scale's slot for
+   exactly this. Scoped to this modal so the video and upcoming-fair modals,
+   which share the same pre-existing bug, keep their current behaviour. */
+#newsletter-modal {
+  z-index: var(--z-modal);
+}
+
 .newsletter-modal-content {
   position: relative;
   width: 90%;
